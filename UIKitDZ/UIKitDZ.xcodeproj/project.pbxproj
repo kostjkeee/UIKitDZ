@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B10FA112B748B2400B08675 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10FA102B748B2400B08675 /* GameModel.swift */; };
+		8B4EF5602B75A3A300D70B00 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF55F2B75A3A300D70B00 /* Alert+Extension.swift */; };
 		8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */; };
 		8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */; };
 		8BEE89602B73C1A500E037E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895F2B73C1A500E037E4 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		8B10FA102B748B2400B08675 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		8B4EF55F2B75A3A300D70B00 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		8BEE89582B73C1A500E037E4 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				8BEE895F2B73C1A500E037E4 /* ViewController.swift */,
+				8B4EF55F2B75A3A300D70B00 /* Alert+Extension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BEE89602B73C1A500E037E4 /* ViewController.swift in Sources */,
+				8B4EF5602B75A3A300D70B00 /* Alert+Extension.swift in Sources */,
 				8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */,
 				8B10FA112B748B2400B08675 /* GameModel.swift in Sources */,
 				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,

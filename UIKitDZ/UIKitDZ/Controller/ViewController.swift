@@ -90,11 +90,7 @@ final class ViewController: UIViewController {
     }
 
     private func greetTheUser() {
-        let initialAlertController = UIAlertController(
-            title: "Пожалуйста,\nпредставьтесь",
-            message: nil,
-            preferredStyle: .alert
-        )
+        let initialAlertController = createAlert(title: "Пожалуйста,\nпредставьтесь", message: nil, prefStyle: .alert)
         initialAlertController.addTextField { textField in
             textField.placeholder = "Введите ваше имя"
         }
@@ -110,30 +106,26 @@ final class ViewController: UIViewController {
         guard let safeResult = result else { return }
         switch safeResult {
         case .correct:
-            let correctAlertController = UIAlertController(
-                title: "Поздравляю!",
-                message: "Вы угадали",
-                preferredStyle: .alert
-            )
+            let correctAlertController = createAlert(title: "Поздравляю!", message: "Вы угадали", prefStyle: .alert)
             correctAlertController.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: { _ in
                 self.game.answer = 0
             }))
             present(correctAlertController, animated: true)
         case .less:
-            let lessAlertController = UIAlertController(
+            let lessAlertController = createAlert(
                 title: "Попробуйте еще раз",
                 message: "Вы ввели слишком \nбольшое число",
-                preferredStyle: .alert
+                prefStyle: .alert
             )
             lessAlertController.addAction(UIAlertAction(title: "Ок", style: .default, handler: { _ in
                 self.playGame()
             }))
             present(lessAlertController, animated: true)
         case .more:
-            let lessAlertController = UIAlertController(
+            let lessAlertController = createAlert(
                 title: "Попробуйте еще раз",
                 message: "Вы ввели слишком \nмаленькое число",
-                preferredStyle: .alert
+                prefStyle: .alert
             )
             lessAlertController.addAction(UIAlertAction(title: "Ок", style: .default, handler: { _ in
                 self.playGame()
@@ -145,11 +137,7 @@ final class ViewController: UIViewController {
     }
 
     @objc private func calculateTwoNumbers() {
-        let calculatorAlertController = UIAlertController(
-            title: "Введите ваши числа",
-            message: nil,
-            preferredStyle: .alert
-        )
+        let calculatorAlertController = createAlert(title: "Введите ваши числа", message: nil, prefStyle: .alert)
         calculatorAlertController.addTextField { textField in
             textField.placeholder = "Число 1"
         }
@@ -157,18 +145,18 @@ final class ViewController: UIViewController {
             textField.placeholder = "Число 2"
         }
         calculatorAlertController.addAction(UIAlertAction(title: "Выбрать операцию", style: .default, handler: { _ in
-            let operationsAlertController = UIAlertController(
+            let operationsAlertController = self.createAlert(
                 title: "Выберите математическую операцию",
                 message: nil,
-                preferredStyle: .actionSheet
+                prefStyle: .alert
             )
             operationsAlertController.addAction(UIAlertAction(title: "Сложить", style: .default) { _ in
                 let result = (Double(calculatorAlertController.textFields?[0].text ?? "") ?? 0) +
                     (Double(calculatorAlertController.textFields?[1].text ?? "") ?? 0)
-                let resultAlertController = UIAlertController(
+                let resultAlertController = self.createAlert(
                     title: "Ваш результат",
                     message: "Результат вычислений: \(result)",
-                    preferredStyle: .alert
+                    prefStyle: .alert
                 )
                 resultAlertController.addAction(UIAlertAction(title: "Отмена", style: .default))
                 resultAlertController.addAction(UIAlertAction(title: "Ок", style: .cancel))
@@ -177,10 +165,10 @@ final class ViewController: UIViewController {
             operationsAlertController.addAction(UIAlertAction(title: "Вычесть", style: .default) { _ in
                 let result = (Double(calculatorAlertController.textFields?[0].text ?? "") ?? 0) -
                     (Double(calculatorAlertController.textFields?[1].text ?? "") ?? 0)
-                let resultAlertController = UIAlertController(
+                let resultAlertController = self.createAlert(
                     title: "Ваш результат",
                     message: "Результат вычислений: \(result)",
-                    preferredStyle: .alert
+                    prefStyle: .alert
                 )
                 resultAlertController.addAction(UIAlertAction(title: "Отмена", style: .default))
                 resultAlertController.addAction(UIAlertAction(title: "Ок", style: .cancel))
@@ -189,10 +177,10 @@ final class ViewController: UIViewController {
             operationsAlertController.addAction(UIAlertAction(title: "Умножить", style: .default) { _ in
                 let result = (Double(calculatorAlertController.textFields?[0].text ?? "") ?? 0) *
                     (Double(calculatorAlertController.textFields?[1].text ?? "") ?? 0)
-                let resultAlertController = UIAlertController(
+                let resultAlertController = self.createAlert(
                     title: "Ваш результат",
                     message: "Результат вычислений: \(result)",
-                    preferredStyle: .alert
+                    prefStyle: .alert
                 )
                 resultAlertController.addAction(UIAlertAction(title: "Отмена", style: .default))
                 resultAlertController.addAction(UIAlertAction(title: "Ок", style: .cancel))
@@ -201,10 +189,10 @@ final class ViewController: UIViewController {
             operationsAlertController.addAction(UIAlertAction(title: "Разделить", style: .default) { _ in
                 let result = (Double(calculatorAlertController.textFields?[0].text ?? "") ?? 0) /
                     (Double(calculatorAlertController.textFields?[1].text ?? "") ?? 0)
-                let resultAlertController = UIAlertController(
+                let resultAlertController = self.createAlert(
                     title: "Ваш результат",
                     message: "Результат вычислений: \(result)",
-                    preferredStyle: .alert
+                    prefStyle: .alert
                 )
                 resultAlertController.addAction(UIAlertAction(title: "Отмена", style: .default))
                 resultAlertController.addAction(UIAlertAction(title: "Ок", style: .cancel))
@@ -221,11 +209,7 @@ final class ViewController: UIViewController {
         if game.answer == 0 {
             game.getRandomNumber()
         }
-        let gameAlertController = UIAlertController(
-            title: "Угадай число от 1 до 10",
-            message: nil,
-            preferredStyle: .alert
-        )
+        let gameAlertController = createAlert(title: "Угадай число от 1 до 10", message: nil, prefStyle: .alert)
         gameAlertController.addTextField { textField in
             textField.placeholder = "Введите число"
         }
