@@ -26,6 +26,7 @@ class AuthorizationViewController: UIViewController {
     // MARK: - Private Methods
 
     private func setupUI() {
+        loginButton.isEnabled = false
         passwordTextField.isSecureTextEntry = true
         loginButton.layer.cornerRadius = 10
         loginTextField.setUnderLine()
@@ -44,16 +45,26 @@ class AuthorizationViewController: UIViewController {
     }
 
     @IBAction func typedLogin(_ sender: UITextField) {
-        guard let text = sender.text else { return }
-        if !text.isEmpty, text != " " {
+        guard let login = sender.text,
+              let password = passwordTextField.text else { return }
+        if !login.isEmpty, !login.contains(" "), !password.isEmpty, !password.contains(" ") {
+            loginButton.isEnabled = true
             loginButton.backgroundColor = UIColor(red: 22 / 255, green: 189 / 255, blue: 205 / 255, alpha: 1.0)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = UIColor(red: 22 / 255, green: 189 / 255, blue: 205 / 255, alpha: 0.5)
         }
     }
 
     @IBAction func typedPassword(_ sender: UITextField) {
-        guard let text = sender.text else { return }
-        if !text.isEmpty, text != " " {
+        guard let password = sender.text,
+              let login = loginTextField.text else { return }
+        if !password.isEmpty, !password.contains(" "), !login.isEmpty, !login.contains(" ") {
+            loginButton.isEnabled = true
             loginButton.backgroundColor = UIColor(red: 22 / 255, green: 189 / 255, blue: 205 / 255, alpha: 1.0)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = UIColor(red: 22 / 255, green: 189 / 255, blue: 205 / 255, alpha: 0.5)
         }
     }
 
