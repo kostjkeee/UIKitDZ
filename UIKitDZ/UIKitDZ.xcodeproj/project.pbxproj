@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B4EF5642B75AEE700D70B00 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF5632B75AEE700D70B00 /* TextField+Extension.swift */; };
+		8B4EF5662B75C0B500D70B00 /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF5652B75C0B500D70B00 /* Label+Extension.swift */; };
 		8BB34E842B74DFD100DC6C01 /* CafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */; };
 		8BB34E862B74DFEC00DC6C01 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */; };
+		8BDF2AFD2B75C5400033C05E /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */; };
 		8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */; };
 		8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */; };
 		8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */; };
@@ -18,8 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B4EF5632B75AEE700D70B00 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
+		8B4EF5652B75C0B500D70B00 /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeViewController.swift; sourceTree = "<group>"; };
 		8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankViewController.swift; sourceTree = "<group>"; };
 		8BEE89582B73C1A500E037E4 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,7 @@
 				8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */,
 				8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */,
 				8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */,
+				8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -71,6 +78,8 @@
 			children = (
 				8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */,
 				8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */,
+				8B4EF5652B75C0B500D70B00 /* Label+Extension.swift */,
+				8B4EF5632B75AEE700D70B00 /* TextField+Extension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -221,9 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDF2AFD2B75C5400033C05E /* ThankViewController.swift in Sources */,
+				8B4EF5662B75C0B500D70B00 /* Label+Extension.swift in Sources */,
 				8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */,
 				8BB34E842B74DFD100DC6C01 /* CafeViewController.swift in Sources */,
 				8BB34E862B74DFEC00DC6C01 /* BillViewController.swift in Sources */,
+				8B4EF5642B75AEE700D70B00 /* TextField+Extension.swift in Sources */,
 				8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */,
 				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,
 			);

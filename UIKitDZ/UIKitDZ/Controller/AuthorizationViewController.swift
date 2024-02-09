@@ -5,16 +5,29 @@ import UIKit
 
 /// main view controller
 class AuthorizationViewController: UIViewController {
-    var securityButtonClicked = false
+    // MARK: - IBOutlets
 
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var securityButton: UIButton!
 
+    // MARK: - Private Properties
+
+    var securityButtonClicked = false
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+
+    // MARK: - Private Methods
+
+    private func setupUI() {
         passwordTextField.isSecureTextEntry = true
+        loginButton.layer.cornerRadius = 10
         loginTextField.setUnderLine()
         passwordTextField.setUnderLine()
     }
@@ -38,7 +51,6 @@ class AuthorizationViewController: UIViewController {
     }
 
     @IBAction func typedPassword(_ sender: UITextField) {
-//        sender.isSecureTextEntry = true
         guard let text = sender.text else { return }
         if !text.isEmpty, text != " " {
             loginButton.backgroundColor = UIColor(red: 22 / 255, green: 189 / 255, blue: 205 / 255, alpha: 1.0)
@@ -46,18 +58,12 @@ class AuthorizationViewController: UIViewController {
     }
 
     @IBAction func pressedLogin(_ sender: UIButton) {
-        guard let cafeViewController = storyboard?
-            .instantiateViewController(withIdentifier: "CafeVC") as? CafeViewController else { return }
-        navigationController?.pushViewController(cafeViewController, animated: true)
+        performSegue(withIdentifier: "segueToCafe", sender: self)
     }
-}
 
-extension UITextField {
-    func setUnderLine() {
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: bounds.height + 7, width: 335, height: 1)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        borderStyle = UITextField.BorderStyle.none
-        layer.addSublayer(bottomLine)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "segueToCafe" else { return }
+        guard let destination = segue.destination as? CafeViewController else { return }
+        destination.usernameEmail = loginTextField.text
     }
 }

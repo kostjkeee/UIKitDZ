@@ -100,6 +100,7 @@
                         <outlet property="loginTextField" destination="R30-2q-SFD" id="i0K-xz-9so"/>
                         <outlet property="passwordTextField" destination="AQc-Jv-KIp" id="hfP-v4-cOf"/>
                         <outlet property="securityButton" destination="0t3-hr-Ku8" id="his-Ur-2kx"/>
+                        <segue destination="vER-wb-XuR" kind="show" identifier="segueToCafe" id="2Wb-bG-xBk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,91 +110,78 @@
         <!--Кафе Алиса-->
         <scene sceneID="29J-FX-ntT">
             <objects>
-                <viewController storyboardIdentifier="CafeVC" id="vER-wb-XuR" customClass="CafeViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vER-wb-XuR" customClass="CafeViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UiY-cu-7D9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ФИО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHi-3e-SiH">
-                                <rect key="frame" x="26" y="189" width="43" height="20"/>
+                                <rect key="frame" x="20" y="110" width="175" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите Ваше ФИО" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYp-6U-Uch">
-                                <rect key="frame" x="26" y="217" width="158" height="34"/>
+                                <rect key="frame" x="20" y="139" width="250" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Укажите количество гостей" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRR-sg-kNH">
-                                <rect key="frame" x="26" y="292" width="196" height="34"/>
+                                <rect key="frame" x="20" y="210" width="250" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Укажите номер стола" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SCC-I5-Qnc">
-                                <rect key="frame" x="26" y="355" width="158" height="34"/>
+                                <rect key="frame" x="20" y="281" width="250" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Количество гостей" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apX-M4-EE0">
-                                <rect key="frame" x="26" y="264" width="173" height="20"/>
+                                <rect key="frame" x="20" y="181" width="175" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Номер стола" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ix-RY-m09">
-                                <rect key="frame" x="26" y="334" width="117" height="20"/>
+                                <rect key="frame" x="20" y="252" width="175" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Бронировали стол?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0i-q2-cBk">
-                                <rect key="frame" x="26" y="470" width="180" height="20"/>
+                                <rect key="frame" x="20" y="385" width="250" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Предоплата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0X-LG-7rn">
-                                <rect key="frame" x="26" y="523" width="111" height="20"/>
+                                <rect key="frame" x="20" y="444" width="250" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIP-комната" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSI-JM-XAC">
-                                <rect key="frame" x="26" y="570" width="117" height="20"/>
+                                <rect key="frame" x="20" y="501" width="250" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFk-dN-yX8">
-                                <rect key="frame" x="291" y="465" width="49" height="31"/>
+                                <rect key="frame" x="313" y="385" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="isTableReserved:" destination="vER-wb-XuR" eventType="valueChanged" id="aDc-V5-aR6"/>
-                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tS6-aB-p7E">
-                                <rect key="frame" x="291" y="565" width="49" height="31"/>
+                                <rect key="frame" x="313" y="501" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="isVIProomIncluded:" destination="vER-wb-XuR" eventType="valueChanged" id="KuN-PG-Do9"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2o-Dp-ELW">
-                                <rect key="frame" x="291" y="512" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="isPrepaid:" destination="vER-wb-XuR" eventType="valueChanged" id="Ex9-E0-xbH"/>
-                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qnb-gv-bkO">
                                 <rect key="frame" x="20" y="671" width="335" height="44"/>
@@ -208,6 +196,10 @@
                                     <action selector="pressedBill:" destination="vER-wb-XuR" eventType="touchUpInside" id="Njh-mB-TZ0"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2o-Dp-ELW">
+                                <rect key="frame" x="313" y="442" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xF1-NN-Mpw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -216,93 +208,154 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="bIB-IH-iw0"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="typedGuestsNumber" destination="XRR-sg-kNH" id="yWZ-Ms-49E"/>
-                        <outlet property="typedName" destination="aYp-6U-Uch" id="5QT-Go-V7J"/>
-                        <outlet property="typedTableNumber" destination="SCC-I5-Qnc" id="o0X-VE-PMJ"/>
+                        <outlet property="billButton" destination="Qnb-gv-bkO" id="R2x-4v-EvS"/>
+                        <outlet property="fullName" destination="aYp-6U-Uch" id="0rh-TC-7xx"/>
+                        <outlet property="guestsNumber" destination="XRR-sg-kNH" id="92l-WF-hBq"/>
+                        <outlet property="tableNumber" destination="SCC-I5-Qnc" id="vRG-Uw-HrM"/>
+                        <segue destination="fVC-VW-ESD" kind="show" identifier="segueToBill" id="OWf-0K-rnl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEr-gJ-sXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1955" y="-2"/>
         </scene>
-        <!--Bill View Controller-->
+        <!--Чек-->
         <scene sceneID="WXv-Dz-sZK">
             <objects>
-                <viewController storyboardIdentifier="BillVC" id="fVC-VW-ESD" customClass="BillViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fVC-VW-ESD" customClass="BillViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bbF-tt-DRB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDT-Yf-zP5">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDT-Yf-zP5">
                                 <rect key="frame" x="20" y="671" width="335" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Итого - 700 руб">
-                                    <fontDescription key="titleFontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Итого - 700 руб"/>
                                 <connections>
                                     <action selector="pressedLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fef-u1-r7o"/>
                                     <action selector="pressedTotal:" destination="fVC-VW-ESD" eventType="touchUpInside" id="iZr-Z6-q0M"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bill" translatesAutoresizingMaskIntoConstraints="NO" id="mgx-ci-ht1">
-                                <rect key="frame" x="20" y="309" width="335" height="278"/>
+                                <rect key="frame" x="20" y="366" width="335" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат &quot;Цезарь&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmp-6Z-iFH">
-                                <rect key="frame" x="16" y="118" width="144" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат &quot;Цезарь&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmp-6Z-iFH">
+                                <rect key="frame" x="20" y="110" width="175" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Салат Айсберг, куриное филе, помидоры Черри, сухарики, соус Цезарь, пармезан" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xpa-U3-tSh">
-                                <rect key="frame" x="20" y="146" width="263" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат &quot;Греческий&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDN-Dz-o5a">
-                                <rect key="frame" x="16" y="192" width="175" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат &quot;Греческий&quot;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDN-Dz-o5a">
+                                <rect key="frame" x="20" y="209" width="175" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Салат Айсберг, куриное филе, помидоры Черри, сухарики, соус Цезарь, пармезан" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-0q-YgU">
-                                <rect key="frame" x="20" y="220" width="263" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="400 р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-8o-ARy">
-                                <rect key="frame" x="304" y="113" width="51" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="400 ₽" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-8o-ARy">
+                                <rect key="frame" x="265" y="110" width="50" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="300 р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7s-Lc-jlU">
-                                <rect key="frame" x="304" y="185" width="51" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="300 ₽" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7s-Lc-jlU">
+                                <rect key="frame" x="265" y="209" width="50" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backbutton" translatesAutoresizingMaskIntoConstraints="NO" id="KHC-Xp-qaS">
+                                <rect key="frame" x="336" y="110" width="30" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backbutton" translatesAutoresizingMaskIntoConstraints="NO" id="Xwx-Y7-yy7">
+                                <rect key="frame" x="336" y="209" width="30" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат Айсберг, куриное филе, помидоры  Черри, сухарики, соус Цезарь, пармезан" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmU-0g-8pi">
+                                <rect key="frame" x="20" y="139" width="304" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                <color key="textColor" red="0.81568627449999997" green="0.83921568629999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат, помидоры, огурцы, лук красный, маслины, сыр Фета, масло оливковое" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfW-9f-qtC">
+                                <rect key="frame" x="20" y="238" width="304" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                <color key="textColor" red="0.81568627449999997" green="0.83921568629999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P9C-9a-Hrz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kiS-j2-lp5"/>
+                    <navigationItem key="navigationItem" title="Чек" id="kiS-j2-lp5"/>
                     <connections>
-                        <outlet property="priceLabel" destination="VAn-8o-ARy" id="vyr-aV-g42"/>
+                        <outlet property="firstSaladDescription" destination="MmU-0g-8pi" id="5Kb-x8-xMU"/>
+                        <outlet property="secondSaladDescription" destination="vfW-9f-qtC" id="aPQ-No-r77"/>
+                        <outlet property="totalButton" destination="HDT-Yf-zP5" id="mwe-xx-MfK"/>
+                        <segue destination="UpQ-Wx-GGk" kind="show" identifier="segueToThank" id="HSU-Te-xV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBh-B5-uBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2956" y="-2"/>
+            <point key="canvasLocation" x="2954.9618320610684" y="-2.1126760563380285"/>
+        </scene>
+        <!--Thank View Controller-->
+        <scene sceneID="Tef-R3-fJ3">
+            <objects>
+                <viewController id="UpQ-Wx-GGk" customClass="ThankViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dgN-To-exL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="creature" translatesAutoresizingMaskIntoConstraints="NO" id="M2Z-Jv-8Ft">
+                                <rect key="frame" x="0.0" y="225" width="393" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdp-2g-kb9">
+                                <rect key="frame" x="20" y="671" width="335" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.75475883479999994" blue="0.81542736289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Закрыть">
+                                    <fontDescription key="titleFontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressedBill:" destination="vER-wb-XuR" eventType="touchUpInside" id="9ri-ZL-E75"/>
+                                    <action selector="pressedClose:" destination="UpQ-Wx-GGk" eventType="touchUpInside" id="npf-vq-opZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Электронный чек отправили вам на почту " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxE-kf-z9o">
+                                <rect key="frame" x="40" y="111" width="305" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="inW-vx-XgD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0KJ-hY-pKD"/>
+                    <connections>
+                        <outlet property="closeButton" destination="fdp-2g-kb9" id="Atk-Kc-pTn"/>
+                        <outlet property="descriptionLabel" destination="XxE-kf-z9o" id="neJ-oc-UmZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JN5-ZN-qMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N5k-39-oA6">
@@ -324,8 +377,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backbutton" width="65" height="65"/>
         <image name="bill" width="335" height="281"/>
         <image name="closed" width="67" height="57"/>
+        <image name="creature" width="1125" height="1125"/>
         <image name="cup" width="525" height="494"/>
         <image name="open" width="66" height="45"/>
         <systemColor name="systemBackgroundColor">
