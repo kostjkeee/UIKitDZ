@@ -23,13 +23,17 @@ struct Game {
     }
 
     public func checkUserAnswer(_ answer: Int) -> UserResult {
-        if answer == self.answer {
-            return .correct
-        } else if answer < self.answer {
-            return .more
-        } else if answer > self.answer {
-            return .less
+        var result: UserResult
+        switch answer {
+        case let number where number == self.answer:
+            result = .correct
+        case let number where number < self.answer:
+            result = .more
+        case let number where number > self.answer:
+            result = .less
+        default:
+            result = .notFound
         }
-        return .notFound
+        return result
     }
 }

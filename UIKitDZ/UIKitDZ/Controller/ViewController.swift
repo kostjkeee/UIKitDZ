@@ -11,7 +11,7 @@ final class ViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private let backgroundImage = {
+    private let backgroundImageView = {
         let backgroundImage = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
@@ -29,7 +29,6 @@ final class ViewController: UIViewController {
         label.textColor = .white
         label.font = UIFont(name: "Verdana-bold", size: 30)
         label.textAlignment = .center
-        label.text = ""
         return label
     }()
 
@@ -84,7 +83,7 @@ final class ViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(backgroundImage)
+        view.addSubview(backgroundImageView)
         view.addSubview(calculatorButton)
         view.addSubview(guessTheNumberButton)
     }
