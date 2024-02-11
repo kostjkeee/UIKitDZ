@@ -55,7 +55,7 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="typedLogin:" destination="BYZ-38-t0r" eventType="editingChanged" id="gYb-KO-832"/>
+                                    <action selector="loginDidType:" destination="BYZ-38-t0r" eventType="editingChanged" id="gQd-gw-s6x"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Введите пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-Jv-KIp">
@@ -64,7 +64,7 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="typedPassword:" destination="BYZ-38-t0r" eventType="editingChanged" id="mDO-AD-gwU"/>
+                                    <action selector="passwordDidType:" destination="BYZ-38-t0r" eventType="editingChanged" id="sRQ-X1-yDB"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBN-TT-BlA">
@@ -77,7 +77,7 @@
                                     <fontDescription key="titleFontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="pressedLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s0Y-aA-RL6"/>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rXt-do-yah"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0t3-hr-Ku8">
@@ -88,7 +88,7 @@
                                 <state key="normal" image="eye.slash.fill" catalog="system"/>
                                 <state key="highlighted" image="open"/>
                                 <connections>
-                                    <action selector="toggleSecurityMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAE-lQ-f6e"/>
+                                    <action selector="securityModeChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0eu-af-QZV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -390,7 +390,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

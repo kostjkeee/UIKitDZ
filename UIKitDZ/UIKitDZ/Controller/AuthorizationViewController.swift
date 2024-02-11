@@ -33,7 +33,7 @@ final class AuthorizationViewController: UIViewController {
         passwordTextField.setUnderLine()
     }
 
-    @IBAction func toggleSecurityMode(_ sender: UIButton) {
+    @IBAction func securityModeChanged(_ sender: UIButton) {
         if isSecurityButtonClicked {
             passwordTextField.isSecureTextEntry = true
             sender.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
@@ -44,7 +44,7 @@ final class AuthorizationViewController: UIViewController {
         isSecurityButtonClicked = !isSecurityButtonClicked
     }
 
-    @IBAction func typedLogin(_ sender: UITextField) {
+    @IBAction func loginDidType(_ sender: UITextField) {
         guard let login = sender.text,
               let password = passwordTextField.text else { return }
         if !login.isEmpty, !login.contains(" "), !password.isEmpty, !password.contains(" ") {
@@ -56,7 +56,7 @@ final class AuthorizationViewController: UIViewController {
         }
     }
 
-    @IBAction func typedPassword(_ sender: UITextField) {
+    @IBAction func passwordDidType(_ sender: UITextField) {
         guard let password = sender.text,
               let login = loginTextField.text else { return }
         if !password.isEmpty, !password.contains(" "), !login.isEmpty, !login.contains(" ") {
@@ -68,7 +68,7 @@ final class AuthorizationViewController: UIViewController {
         }
     }
 
-    @IBAction func pressedLogin(_ sender: UIButton) {
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "segueToCafe", sender: self)
     }
 

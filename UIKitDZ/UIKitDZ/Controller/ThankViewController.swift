@@ -4,7 +4,7 @@
 import UIKit
 
 /// Последний экран, для выражения благодарности  пользователю
-class ThankViewController: UIViewController {
+final class ThankViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var descriptionLabel: UILabel!
