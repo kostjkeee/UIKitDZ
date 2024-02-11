@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B4EF5642B75AEE700D70B00 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF5632B75AEE700D70B00 /* TextField+Extension.swift */; };
-		8B4EF5662B75C0B500D70B00 /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF5652B75C0B500D70B00 /* Label+Extension.swift */; };
+		8B4EF5662B75C0B500D70B00 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF5652B75C0B500D70B00 /* UIView+Extension.swift */; };
 		8BB34E842B74DFD100DC6C01 /* CafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */; };
 		8BB34E862B74DFEC00DC6C01 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */; };
 		8BDF2AFD2B75C5400033C05E /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */; };
@@ -21,8 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B4EF5632B75AEE700D70B00 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
-		8B4EF5652B75C0B500D70B00 /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
+		8B4EF5652B75C0B500D70B00 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeViewController.swift; sourceTree = "<group>"; };
 		8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankViewController.swift; sourceTree = "<group>"; };
@@ -78,8 +76,7 @@
 			children = (
 				8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */,
 				8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */,
-				8B4EF5652B75C0B500D70B00 /* Label+Extension.swift */,
-				8B4EF5632B75AEE700D70B00 /* TextField+Extension.swift */,
+				8B4EF5652B75C0B500D70B00 /* UIView+Extension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,11 +228,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BDF2AFD2B75C5400033C05E /* ThankViewController.swift in Sources */,
-				8B4EF5662B75C0B500D70B00 /* Label+Extension.swift in Sources */,
+				8B4EF5662B75C0B500D70B00 /* UIView+Extension.swift in Sources */,
 				8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */,
 				8BB34E842B74DFD100DC6C01 /* CafeViewController.swift in Sources */,
 				8BB34E862B74DFEC00DC6C01 /* BillViewController.swift in Sources */,
-				8B4EF5642B75AEE700D70B00 /* TextField+Extension.swift in Sources */,
 				8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */,
 				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,
 			);

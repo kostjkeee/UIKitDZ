@@ -4,13 +4,13 @@
 import UIKit
 
 /// Вью контроллер для отображения 2 экрана "Cafe"
-class CafeViewController: UIViewController {
+final class CafeViewController: UIViewController {
     // MARK: - IBOutlets
 
-    @IBOutlet var fullName: UITextField!
-    @IBOutlet var guestsNumber: UITextField!
-    @IBOutlet var tableNumber: UITextField!
-    @IBOutlet var billButton: UIButton!
+    @IBOutlet private var fullName: UITextField!
+    @IBOutlet private var guestsNumber: UITextField!
+    @IBOutlet private var tableNumber: UITextField!
+    @IBOutlet private var billButton: UIButton!
 
     // MARK: - Public Properties
 

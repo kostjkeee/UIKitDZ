@@ -4,17 +4,17 @@
 import UIKit
 
 /// main view controller
-class AuthorizationViewController: UIViewController {
+final class AuthorizationViewController: UIViewController {
     // MARK: - IBOutlets
 
-    @IBOutlet var loginButton: UIButton!
-    @IBOutlet var loginTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var securityButton: UIButton!
+    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet private var loginTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var securityButton: UIButton!
 
     // MARK: - Private Properties
 
-    var securityButtonClicked = false
+    var isSecurityButtonClicked = false
 
     // MARK: - Life Cycle
 
@@ -34,14 +34,14 @@ class AuthorizationViewController: UIViewController {
     }
 
     @IBAction func toggleSecurityMode(_ sender: UIButton) {
-        if securityButtonClicked {
+        if isSecurityButtonClicked {
             passwordTextField.isSecureTextEntry = true
-            sender.setImage(UIImage(named: "closed"), for: .normal)
+            sender.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         } else {
             passwordTextField.isSecureTextEntry = false
-            sender.setImage(UIImage(named: "open"), for: .normal)
+            sender.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         }
-        securityButtonClicked = !securityButtonClicked
+        isSecurityButtonClicked = !isSecurityButtonClicked
     }
 
     @IBAction func typedLogin(_ sender: UITextField) {

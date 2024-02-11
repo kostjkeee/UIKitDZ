@@ -4,12 +4,12 @@
 import UIKit
 
 /// Вью контроллер для отображения 3 экрана "Счет"
-class BillViewController: UIViewController {
+final class BillViewController: UIViewController {
     // MARK: - IBOutlets
 
-    @IBOutlet var secondSaladDescription: UILabel!
-    @IBOutlet var firstSaladDescription: UILabel!
-    @IBOutlet var totalButton: UIButton!
+    @IBOutlet private var secondSaladDescription: UILabel!
+    @IBOutlet private var firstSaladDescription: UILabel!
+    @IBOutlet private var totalButton: UIButton!
 
     // MARK: - Public Properties
 
