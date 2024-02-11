@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B4EF5662B75C0B500D70B00 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EF5652B75C0B500D70B00 /* UIView+Extension.swift */; };
+		8BB34E842B74DFD100DC6C01 /* CafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */; };
+		8BB34E862B74DFEC00DC6C01 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */; };
+		8BDF2AFD2B75C5400033C05E /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */; };
 		8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */; };
 		8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */; };
-		8BEE89602B73C1A500E037E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895F2B73C1A500E037E4 /* ViewController.swift */; };
+		8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */; };
 		8BEE89632B73C1A500E037E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE89612B73C1A500E037E4 /* Main.storyboard */; };
 		8BEE89652B73C1A600E037E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE89642B73C1A600E037E4 /* Assets.xcassets */; };
 		8BEE89682B73C1A600E037E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE89662B73C1A600E037E4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B4EF5652B75C0B500D70B00 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeViewController.swift; sourceTree = "<group>"; };
+		8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankViewController.swift; sourceTree = "<group>"; };
 		8BEE89582B73C1A500E037E4 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8BEE895F2B73C1A500E037E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		8BEE89622B73C1A500E037E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BEE89642B73C1A600E037E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BEE89672B73C1A600E037E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +45,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BB34E7E2B74DD3B00DC6C01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BB34E802B74DD6E00DC6C01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BEE89612B73C1A500E037E4 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BB34E812B74DD7200DC6C01 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */,
+				8BB34E832B74DFD100DC6C01 /* CafeViewController.swift */,
+				8BB34E852B74DFEC00DC6C01 /* BillViewController.swift */,
+				8BDF2AFC2B75C5400033C05E /* ThankViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BB34E822B74DD9000DC6C01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */,
+				8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */,
+				8B4EF5652B75C0B500D70B00 /* UIView+Extension.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8BEE894F2B73C1A500E037E4 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +100,10 @@
 		8BEE895A2B73C1A500E037E4 /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
-				8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */,
-				8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */,
-				8BEE895F2B73C1A500E037E4 /* ViewController.swift */,
-				8BEE89612B73C1A500E037E4 /* Main.storyboard */,
+				8BB34E822B74DD9000DC6C01 /* Supporting Files */,
+				8BB34E7E2B74DD3B00DC6C01 /* Model */,
+				8BB34E802B74DD6E00DC6C01 /* View */,
+				8BB34E812B74DD7200DC6C01 /* Controller */,
 				8BEE89642B73C1A600E037E4 /* Assets.xcassets */,
 				8BEE89662B73C1A600E037E4 /* LaunchScreen.storyboard */,
 				8BEE89692B73C1A600E037E4 /* Info.plist */,
@@ -183,7 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BEE89602B73C1A500E037E4 /* ViewController.swift in Sources */,
+				8BDF2AFD2B75C5400033C05E /* ThankViewController.swift in Sources */,
+				8B4EF5662B75C0B500D70B00 /* UIView+Extension.swift in Sources */,
+				8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */,
+				8BB34E842B74DFD100DC6C01 /* CafeViewController.swift in Sources */,
+				8BB34E862B74DFEC00DC6C01 /* BillViewController.swift in Sources */,
 				8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */,
 				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,
 			);
