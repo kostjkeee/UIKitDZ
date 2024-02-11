@@ -62,14 +62,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(textButton)
+        setupUI()
     }
 
     // MARK: - Private Methods
 
+    private func setupUI() {
+        view.backgroundColor = .white
+        view.addSubview(textButton)
+    }
+
     private func showLabelsAndTextViews() {
-        textButton.frame = CGRect(x: 20, y: 598, width: 335, height: 44)
+        textButton.frame.origin.y = 598
         view.addSubview(firstLabel)
         view.addSubview(secondLabel)
         view.addSubview(firstTextView)

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8BB34E7D2B74C4BE00DC6C01 /* ReversedWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E7C2B74C4BE00DC6C01 /* ReversedWordModel.swift */; };
+		8BB34E7D2B74C4BE00DC6C01 /* ReversedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB34E7C2B74C4BE00DC6C01 /* ReversedWord.swift */; };
 		8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */; };
 		8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */; };
 		8BEE89602B73C1A500E037E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895F2B73C1A500E037E4 /* ViewController.swift */; };
@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8BB34E7C2B74C4BE00DC6C01 /* ReversedWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedWordModel.swift; sourceTree = "<group>"; };
+		8BB34E7C2B74C4BE00DC6C01 /* ReversedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedWord.swift; sourceTree = "<group>"; };
 		8BEE89582B73C1A500E037E4 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		8B84B9C32B74BE4F00F8880B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8BB34E7C2B74C4BE00DC6C01 /* ReversedWordModel.swift */,
+				8BB34E7C2B74C4BE00DC6C01 /* ReversedWord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 			files = (
 				8BEE89602B73C1A500E037E4 /* ViewController.swift in Sources */,
 				8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */,
-				8BB34E7D2B74C4BE00DC6C01 /* ReversedWordModel.swift in Sources */,
+				8BB34E7D2B74C4BE00DC6C01 /* ReversedWord.swift in Sources */,
 				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
