@@ -8,7 +8,7 @@ protocol BirthdayListViewControllerDelegate: AnyObject {
 }
 
 /// Экран, показывающий список всех зарегистрированных людей с датами их дней рождения
-class BirthdayListViewController: UIViewController {
+final class BirthdayListViewController: UIViewController {
     // MARK: - Private Properties
 
     private let cakeImageView: UIImageView = {

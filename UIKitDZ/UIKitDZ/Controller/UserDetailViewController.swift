@@ -4,7 +4,7 @@
 import UIKit
 
 /// Экран для заполнения данных о пользователе
-class UserDetailViewController: UIViewController {
+final class UserDetailViewController: UIViewController {
     // MARK: - Private Properties
 
     weak var delegate: BirthdayListViewControllerDelegate?
@@ -177,6 +177,7 @@ class UserDetailViewController: UIViewController {
     }
 }
 
+/// расширет функционал класса, позволяя создавать одни и те же лейблы, но с разным положением по Y
 extension UserDetailViewController {
     private func createLabel(yPosition: Int, labelText: String) -> UILabel {
         let label = UILabel(frame: CGRect(x: 20, y: yPosition, width: 175, height: 19))
@@ -185,6 +186,8 @@ extension UserDetailViewController {
         return label
     }
 }
+
+// MARK: - UITextFieldDelegate
 
 extension UserDetailViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {

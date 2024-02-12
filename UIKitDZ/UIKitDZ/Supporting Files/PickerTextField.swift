@@ -6,7 +6,7 @@ import UIKit
 typealias PickerTextFieldDisplayNameHandler = (Any) -> String
 typealias PickerTextFieldItemsSelectionHandler = (Int, Any) -> Void
 
-/// asdadadadadad
+/// Класс для создания кастомного text field
 final class PickerTextField: UITextField {
     private let picker = UIPickerView(frame: .zero)
     private var lastSelectedRow: Int?

@@ -3,8 +3,8 @@
 
 import UIKit
 
-/// Начальный экраен, на котором проходим авторизацию
-class AuthViewController: UIViewController {
+/// Начальный экран, на котором проходим авторизацию
+final class AuthViewController: UIViewController {
     // MARK: - Private Properties
 
     private var isSecurityModeOn = true {
