@@ -7,7 +7,7 @@ import UIKit
 class AuthViewController: UIViewController {
     // MARK: - Private Properties
 
-    var isSecurityModeOn = true {
+    private var isSecurityModeOn = true {
         didSet {
             if isSecurityModeOn {
                 securityModeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
@@ -143,20 +143,28 @@ class AuthViewController: UIViewController {
     @objc private func textFieldDidChange() {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
-        if email.hasValidCharacter, !email.isEmpty, !email.hasSpaces,
-           password.hasValidCharacter, !password.isEmpty, !password.hasSpaces
-        {
-            loginButton.isEnabled = true
-            loginButton.layer.opacity = 1.0
-            switchLabel.isHidden = false
-            faceIDSwitch.isHidden = false
-        } else {
+
+        guard email.hasValidCharacter,
+              !email.isEmpty,
+              !email.hasSpaces,
+              password.hasValidCharacter,
+              !password.isEmpty,
+              !password.hasSpaces
+        else {
             loginButton.isEnabled = false
             loginButton.layer.opacity = 0.5
             switchLabel.isHidden = true
             faceIDSwitch.isHidden = true
+            return
         }
+        loginButton.isEnabled = true
+        loginButton.layer.opacity = 1.0
+        switchLabel.isHidden = false
+        faceIDSwitch.isHidden = false
     }
 
-    @objc private func navigateToBirthdayViewController() {}
+    @objc private func navigateToBirthdayViewController() {
+        let nextViewController = BirthdayListViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
 }
