@@ -33,10 +33,10 @@ final class BirthdayListViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        view.addSubview(createImageView(yPosition: 105, imageName: "animationGirl"))
-        view.addSubview(createImageView(yPosition: 200, imageName: "woman"))
-        view.addSubview(createImageView(yPosition: 295, imageName: "man"))
-        view.addSubview(createImageView(yPosition: 390, imageName: "boy"))
+        createImageView(yPosition: 105, imageName: "animationGirl")
+        createImageView(yPosition: 200, imageName: "woman")
+        createImageView(yPosition: 295, imageName: "man")
+        createImageView(yPosition: 390, imageName: "boy")
         view.addSubview(createNameLabel(yPosition: 119, labelText: "Helena Link"))
         view.addSubview(createNameLabel(yPosition: 214, labelText: "Verona Tusk"))
         view.addSubview(createNameLabel(yPosition: 309, labelText: "Alex Smith"))
@@ -59,10 +59,10 @@ final class BirthdayListViewController: UIViewController {
 }
 
 extension BirthdayListViewController {
-    func createImageView(yPosition: Int, imageName: String) -> UIImageView {
+    func createImageView(yPosition: Int, imageName: String) {
         let imageView = UIImageView(frame: CGRect(x: 20, y: yPosition, width: 75, height: 75))
         imageView.image = UIImage(named: imageName)
-        return imageView
+        view.addSubview(imageView)
     }
 
     func createNameLabel(yPosition: Int, labelText: String) -> UILabel {
@@ -92,7 +92,7 @@ extension BirthdayListViewController {
 
 extension BirthdayListViewController: BirthdayListViewControllerDelegate {
     func addPerson(name: String, daysRemainCounter: String, birthdayDate: String) {
-        view.addSubview(createImageView(yPosition: 480, imageName: "humanTemplate"))
+        createImageView(yPosition: 480, imageName: "humanTemplate")
         view.addSubview(createNameLabel(yPosition: 492, labelText: name))
         view.addSubview(createDaysCounterLabel(yPosition: 483, labelText: daysRemainCounter))
         view.addSubview(createDateLabel(yPosition: 520, labelText: birthdayDate))

@@ -11,9 +11,7 @@ final class UserDetailViewController: UIViewController {
 
     private let datePicker = UIDatePicker(frame: .zero)
 
-    private var ageData: [String] = []
-
-    private let genderData = ["Female", "Male"]
+    private var user = User()
 
     private let userImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 125, y: 66, width: 125, height: 125))
@@ -74,8 +72,7 @@ final class UserDetailViewController: UIViewController {
         textField.tag = 1
         textField.placeholder = "Typing age"
         textField.setUnderLine()
-        self.fillWithData()
-        textField.pickerData = self.ageData
+        textField.pickerData = self.user.ageData
         textField.displayNameHandler = { item in
             (item as? String) ?? ""
         }
@@ -87,7 +84,7 @@ final class UserDetailViewController: UIViewController {
         textField.tag = 2
         textField.placeholder = "Typing Gender"
         textField.setUnderLine()
-        textField.pickerData = self.genderData
+        textField.pickerData = self.user.genderData
         textField.displayNameHandler = { item in
             (item as? String) ?? ""
         }
@@ -129,14 +126,7 @@ final class UserDetailViewController: UIViewController {
         createToolBar(textField: ageTextField, title: "OK", action: #selector(resignPickerView))
         createToolBar(textField: birthdayTextField, title: "Done", action: #selector(resignPickerView))
         createToolBar(textField: genderTextField, title: "OK", action: #selector(resignPickerView))
-//        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         telegramTextField.delegate = self
-    }
-
-    private func fillWithData() {
-        for number in 1 ... 90 {
-            ageData.append(String(number))
-        }
     }
 
     private func createToolBar(textField: UITextField, title: String, action: Selector?) {

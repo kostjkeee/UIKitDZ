@@ -100,7 +100,8 @@ final class AuthViewController: UIViewController {
     }()
 
     private let faceIDSwitch: UISwitch = {
-        let mySwitch = UISwitch(frame: CGRect(x: 248, y: 544, width: 54, height: 35))
+        let mySwitch = UISwitch()
+        mySwitch.frame.origin = CGPoint(x: 248, y: 544)
         mySwitch.isOn = true
         mySwitch.isHidden = true
         return mySwitch
@@ -110,6 +111,11 @@ final class AuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         setupUI()
     }
 
