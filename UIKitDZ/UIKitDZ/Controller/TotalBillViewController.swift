@@ -20,6 +20,7 @@ class TotalBillViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Verdana-bold", size: 18)
         button.backgroundColor = .myBlue
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -91,17 +92,11 @@ class TotalBillViewController: UIViewController {
         createOrderLabels()
     }
 
-    @objc private func cancelTapped() {
-        dismiss(animated: true)
-    }
-
     private func createOrderLabels() {
         guard let items = positionsMap?.sorted(by: { $0.key < $1.key }) else { return }
         var yPosition = 155
 
         for (key, value) in items {
-            print(key)
-            print(value)
             if key == "Американо" || key == "Капучино" || key == "Латте" {
                 let coffee = createCustomLabel(
                     xPosition: 20,
@@ -160,5 +155,13 @@ class TotalBillViewController: UIViewController {
                 yPosition += 35
             }
         }
+    }
+
+    @objc private func cancelTapped() {
+        dismiss(animated: true)
+    }
+
+    @objc private func payButtonTapped() {
+        print("Перейти на экран с вводом смс")
     }
 }
