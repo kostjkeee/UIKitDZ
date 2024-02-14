@@ -3,13 +3,27 @@
 
 import UIKit
 
-/// main view controller
-class CoffeeViewController: UIViewController {
+/// Контроллер отвечающий за отображение экрана с выбором кофе и других дополнительных добавок
+final class CoffeeViewController: UIViewController {
     // MARK: - Private Properties
+
+    private var billCalculator: TotalBillCalculator?
 
     private let coffee = Coffee()
 
     private var totalOrderMap: [String: String] = [:]
+
+    private var isCofeeChosen = false
+
+    private var isIngredientChosen: Bool = false {
+        didSet {
+            if isIngredientChosen {
+                extraIngredientsButton.setImage(UIImage(named: "checkMark"), for: .normal)
+            } else {
+                extraIngredientsButton.setImage(UIImage(named: "plus"), for: .normal)
+            }
+        }
+    }
 
     private lazy var coffeeSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: coffee.coffeeTypes)
@@ -72,7 +86,7 @@ class CoffeeViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 15, y: 669, width: 345, height: 30))
         label.font = UIFont(name: "Verdana-bold", size: 18)
         label.textAlignment = .right
-        label.text = "Цѣна - 100 руб"
+        label.text = "Цѣна - \(TotalBillCalculator.Price.coffee) руб"
         return label
     }()
 
@@ -101,7 +115,7 @@ class CoffeeViewController: UIViewController {
         button.backgroundColor = .myGray
         button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
         button.imageView?.tintColor = .black
-        button.addTarget(self, action: #selector(returnToPreviousView), for: .touchUpInside)
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -159,6 +173,15 @@ class CoffeeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityButton)
     }
+    
+    private func clearAllData() {
+        totalOrderMap.removeAll()
+        billTotalPrice.text = "Цѣна - \(TotalBillCalculator.Price.coffee) руб"
+        isIngredientChosen = false
+        coffeeSegmentedControl.selectedSegmentIndex = coffee.coffeeTypes.startIndex
+        coffeeRoastingButton.setImage(UIImage(named: "darkCoffee"), for: .normal)
+        billCalculator = nil
+    }
 
     @objc private func activityTapped() {
         let activityController = UIActivityViewController(
@@ -168,8 +191,8 @@ class CoffeeViewController: UIViewController {
         present(activityController, animated: true)
     }
 
-    @objc private func returnToPreviousView() {
-        print("return back")
+    @objc private func backButtonTapped() {
+        clearAllData()
         navigationController?.popViewController(animated: true)
     }
 
@@ -181,18 +204,28 @@ class CoffeeViewController: UIViewController {
 
     @objc private func extraIngredientsTapped() {
         let ingredientsViewController = IngredientsViewController()
+        if let safeBillCalculator = billCalculator {
+            ingredientsViewController.billCalculator = safeBillCalculator
+        }
         ingredientsViewController.delegate = self
         present(ingredientsViewController, animated: true)
     }
 
     @objc private func orderButtonTappeed() {
         let currentIndex = coffeeSegmentedControl.selectedSegmentIndex
-        totalOrderMap["\(coffee.coffeeTypes[currentIndex])"] = "100"
+        if isCofeeChosen {
+            for key in coffee.coffeeTypes where totalOrderMap[key] != nil {
+                totalOrderMap.removeValue(forKey: key)
+                isCofeeChosen = false
+            }
+        }
+        totalOrderMap["\(coffee.coffeeTypes[currentIndex])"] = "\(TotalBillCalculator.Price.coffee)"
+        isCofeeChosen = true
+
         let totalBillViewController = TotalBillViewController()
         totalBillViewController.positionsMap = totalOrderMap
         totalBillViewController.totalBill = billTotalPrice.text
         present(totalBillViewController, animated: true)
-        totalOrderMap.removeAll()
     }
 
     @objc private func coffeeSelected(sender: UISegmentedControl) {
@@ -221,10 +254,14 @@ extension CoffeeViewController: CoffeeRoastingViewControllerDelegate {
 // MARK: - IngredientsViewControllerDelegate
 
 extension CoffeeViewController: IngredientsViewControllerDelegate {
-    func ingredientsSelected(totalBill: Int, ingredientsMap: [String: String], isAnythingAdded: Bool) {
-        if isAnythingAdded {
-            extraIngredientsButton.setImage(UIImage(named: "checkMark"), for: .normal)
-        }
+    func ingredientsSelected(
+        totalBill: Int,
+        ingredientsMap: [String: String],
+        isAnythingAdded: Bool,
+        calculatorInstance: TotalBillCalculator
+    ) {
+        billCalculator = calculatorInstance
+        isIngredientChosen = isAnythingAdded
         billTotalPrice.text = "Цѣна - \(totalBill) руб"
         totalOrderMap = ingredientsMap
     }

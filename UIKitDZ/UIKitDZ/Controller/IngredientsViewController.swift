@@ -4,7 +4,12 @@
 import UIKit
 
 protocol IngredientsViewControllerDelegate: AnyObject {
-    func ingredientsSelected(totalBill: Int, ingredientsMap: [String: String], isAnythingAdded: Bool)
+    func ingredientsSelected(
+        totalBill: Int,
+        ingredientsMap: [String: String],
+        isAnythingAdded: Bool,
+        calculatorInstance: TotalBillCalculator
+    )
 }
 
 /// Контроллер отвечающий за показ экрана с дополнительными ингредиентами
@@ -13,13 +18,7 @@ class IngredientsViewController: UIViewController {
 
     var delegate: IngredientsViewControllerDelegate?
 
-    private var billCalculator = TotalBillCalculator()
-
-    private var isMilkIncluded = false
-    private var isSyrupIncluded = false
-    private var isSoyMilkIncluded = false
-    private var isAlmondMilkIncluded = false
-    private var isEspressoIncluded = false
+    var billCalculator = TotalBillCalculator()
 
     private lazy var milkLabel = createCustomLabel(
         xPosition: 20,
@@ -112,6 +111,7 @@ class IngredientsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupUIIfUserAlreadyChose()
     }
 
     // MARK: - Private Methods
@@ -137,58 +137,60 @@ class IngredientsViewController: UIViewController {
         espressoSwitch.addTarget(self, action: #selector(espressoTapped), for: .valueChanged)
     }
 
+    private func setupUIIfUserAlreadyChose() {
+        milkSwitch.isOn = billCalculator.isMilkIncluded
+        syrupSwitch.isOn = billCalculator.isSyrupIncluded
+        soyMilkSwitch.isOn = billCalculator.isSoyMilkIncluded
+        almondMilkSwitch.isOn = billCalculator.isAlmondMilkIncluded
+        espressoSwitch.isOn = billCalculator.isEspressoIncluded
+    }
+
     @objc private func milkTapped(sender: UISwitch) {
         if sender.isOn {
-            isMilkIncluded = true
+            billCalculator.isMilkIncluded = true
         } else {
-            isMilkIncluded = false
+            billCalculator.isMilkIncluded = false
         }
     }
 
     @objc private func syrupTapped(sender: UISwitch) {
         if sender.isOn {
-            isSyrupIncluded = true
+            billCalculator.isSyrupIncluded = true
         } else {
-            isSyrupIncluded = false
+            billCalculator.isSyrupIncluded = false
         }
     }
 
     @objc private func soyMilkTapped(sender: UISwitch) {
         if sender.isOn {
-            isSoyMilkIncluded = true
+            billCalculator.isSoyMilkIncluded = true
         } else {
-            isSoyMilkIncluded = false
+            billCalculator.isSoyMilkIncluded = false
         }
     }
 
     @objc private func almondMilkTapped(sender: UISwitch) {
         if sender.isOn {
-            isAlmondMilkIncluded = true
+            billCalculator.isAlmondMilkIncluded = true
         } else {
-            isAlmondMilkIncluded = false
+            billCalculator.isAlmondMilkIncluded = false
         }
     }
 
     @objc private func espressoTapped(sender: UISwitch) {
         if sender.isOn {
-            isEspressoIncluded = true
+            billCalculator.isEspressoIncluded = true
         } else {
-            isEspressoIncluded = false
+            billCalculator.isEspressoIncluded = false
         }
     }
 
     @objc private func cancelTapped() {
-        let bill = billCalculator.calculateTotalBill(
-            milk: isMilkIncluded,
-            syrup: isSyrupIncluded,
-            soyMilk: isSoyMilkIncluded,
-            almondMilk: isAlmondMilkIncluded,
-            espresso: isEspressoIncluded
-        )
         delegate?.ingredientsSelected(
-            totalBill: bill,
+            totalBill: billCalculator.calculateTotalBill(),
             ingredientsMap: billCalculator.addedIngredientsMap,
-            isAnythingAdded: billCalculator.isAnyIngredientSelected
+            isAnythingAdded: billCalculator.isAnyIngredientSelected,
+            calculatorInstance: billCalculator
         )
         dismiss(animated: true)
     }

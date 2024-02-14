@@ -16,41 +16,68 @@ struct TotalBillCalculator {
         static let espresso = 50
     }
 
+    enum Ingredients {
+        static let milk = "Молоко"
+        static let syrup = "Сироп"
+        static let soyMilk = "Молоко соевое"
+        static let almondMilk = "Молоко миндальное"
+        static let espresso = "Эспрессо 50мл"
+    }
+
     // MARK: - Public Properties
 
     var isAnyIngredientSelected = false
+
+    var isMilkIncluded = false
+    var isSyrupIncluded = false
+    var isSoyMilkIncluded = false
+    var isAlmondMilkIncluded = false
+    var isEspressoIncluded = false
 
     var addedIngredientsMap: [String: String] = [:]
 
     // MARK: - Public Methods
 
-    mutating func calculateTotalBill(milk: Bool, syrup: Bool, soyMilk: Bool, almondMilk: Bool, espresso: Bool) -> Int {
+    mutating func calculateTotalBill() -> Int {
         var ingredientsCurrentPrice = 0
 
-        if milk {
+        if isMilkIncluded {
             ingredientsCurrentPrice += Price.milk
-            addedIngredientsMap["Молоко"] = String(Price.milk)
+            addedIngredientsMap[Ingredients.milk] = String(Price.milk)
             isAnyIngredientSelected = true
+        } else {
+            addedIngredientsMap.removeValue(forKey: Ingredients.milk)
         }
-        if syrup {
+        if isSyrupIncluded {
             ingredientsCurrentPrice += Price.syrup
-            addedIngredientsMap["Сироп"] = String(Price.syrup)
+            addedIngredientsMap[Ingredients.syrup] = String(Price.syrup)
             isAnyIngredientSelected = true
+        } else {
+            addedIngredientsMap.removeValue(forKey: Ingredients.syrup)
         }
-        if soyMilk {
+        if isSoyMilkIncluded {
             ingredientsCurrentPrice += Price.soyMilk
-            addedIngredientsMap["Молоко соевое"] = String(Price.soyMilk)
+            addedIngredientsMap[Ingredients.soyMilk] = String(Price.soyMilk)
             isAnyIngredientSelected = true
+        } else {
+            addedIngredientsMap.removeValue(forKey: Ingredients.soyMilk)
         }
-        if almondMilk {
+        if isAlmondMilkIncluded {
             ingredientsCurrentPrice += Price.almonMilk
-            addedIngredientsMap["Молоко миндальное"] = String(Price.almonMilk)
+            addedIngredientsMap[Ingredients.almondMilk] = String(Price.almonMilk)
             isAnyIngredientSelected = true
+        } else {
+            addedIngredientsMap.removeValue(forKey: Ingredients.almondMilk)
         }
-        if espresso {
+        if isEspressoIncluded {
             ingredientsCurrentPrice += Price.espresso
-            addedIngredientsMap["Эспрессо 50мл"] = String(Price.espresso)
+            addedIngredientsMap[Ingredients.espresso] = String(Price.espresso)
             isAnyIngredientSelected = true
+        } else {
+            addedIngredientsMap.removeValue(forKey: Ingredients.espresso)
+        }
+        if ingredientsCurrentPrice == 0 {
+            isAnyIngredientSelected = false
         }
         return Price.coffee + ingredientsCurrentPrice
     }

@@ -4,7 +4,7 @@
 import UIKit
 
 /// Контроллер отвечающий за показ экрана где отображается итоговая сумма заказа
-class TotalBillViewController: UIViewController {
+final class TotalBillViewController: UIViewController {
     // MARK: - Public Properties
 
     var positionsMap: [String: String]?
@@ -162,6 +162,7 @@ class TotalBillViewController: UIViewController {
     }
 
     @objc private func payButtonTapped() {
-        print("Перейти на экран с вводом смс")
+        let nextViewController = 
+        navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
     }
 }
