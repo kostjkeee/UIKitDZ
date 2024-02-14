@@ -74,9 +74,16 @@
 			children = (
 				8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */,
 				8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */,
-				8B0304062B7B4945005A7574 /* UIViewController+Extension.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B63B7202B7C7CFC00AD3079 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B0304062B7B4945005A7574 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8BEE894F2B73C1A500E037E4 = {
@@ -101,6 +108,7 @@
 				8B0304012B7B1C2C005A7574 /* Supporting Files */,
 				8B0303FE2B7B1AB0005A7574 /* Model */,
 				8B0303FD2B7B1AA6005A7574 /* Controller */,
+				8B63B7202B7C7CFC00AD3079 /* Extensions */,
 				8BEE89642B73C1A600E037E4 /* Assets.xcassets */,
 				8B0303FF2B7B1AF3005A7574 /* Colors.xcassets */,
 				8BEE89662B73C1A600E037E4 /* LaunchScreen.storyboard */,

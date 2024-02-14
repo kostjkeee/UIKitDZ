@@ -161,7 +161,6 @@ class CoffeeViewController: UIViewController {
     }
 
     @objc private func activityTapped() {
-        print("aactivity tapped")
         let activityController = UIActivityViewController(
             activityItems: ["Лови промокод roadmaplove на любой напиток из Кофейнов"],
             applicationActivities: []
@@ -193,6 +192,7 @@ class CoffeeViewController: UIViewController {
         totalBillViewController.positionsMap = totalOrderMap
         totalBillViewController.totalBill = billTotalPrice.text
         present(totalBillViewController, animated: true)
+        totalOrderMap.removeAll()
     }
 
     @objc private func coffeeSelected(sender: UISegmentedControl) {

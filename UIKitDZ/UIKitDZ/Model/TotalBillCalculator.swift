@@ -7,7 +7,14 @@ import Foundation
 struct TotalBillCalculator {
     // MARK: - Constants
 
-    let coffeePrice = 100
+    enum Price {
+        static let coffee = 100
+        static let milk = 50
+        static let syrup = 20
+        static let soyMilk = 50
+        static let almonMilk = 70
+        static let espresso = 50
+    }
 
     // MARK: - Public Properties
 
@@ -21,30 +28,30 @@ struct TotalBillCalculator {
         var ingredientsCurrentPrice = 0
 
         if milk {
-            ingredientsCurrentPrice += 50
-            addedIngredientsMap["Молоко"] = "50"
+            ingredientsCurrentPrice += Price.milk
+            addedIngredientsMap["Молоко"] = String(Price.milk)
             isAnyIngredientSelected = true
         }
         if syrup {
-            ingredientsCurrentPrice += 20
-            addedIngredientsMap["Сироп"] = "20"
+            ingredientsCurrentPrice += Price.syrup
+            addedIngredientsMap["Сироп"] = String(Price.syrup)
             isAnyIngredientSelected = true
         }
         if soyMilk {
-            ingredientsCurrentPrice += 50
-            addedIngredientsMap["Молоко соевое"] = "50"
+            ingredientsCurrentPrice += Price.soyMilk
+            addedIngredientsMap["Молоко соевое"] = String(Price.soyMilk)
             isAnyIngredientSelected = true
         }
         if almondMilk {
-            ingredientsCurrentPrice += 70
-            addedIngredientsMap["Молоко миндальное"] = "70"
+            ingredientsCurrentPrice += Price.almonMilk
+            addedIngredientsMap["Молоко миндальное"] = String(Price.almonMilk)
             isAnyIngredientSelected = true
         }
         if espresso {
-            ingredientsCurrentPrice += 50
-            addedIngredientsMap["Эспрессо 50мл"] = "50"
+            ingredientsCurrentPrice += Price.espresso
+            addedIngredientsMap["Эспрессо 50мл"] = String(Price.espresso)
             isAnyIngredientSelected = true
         }
-        return coffeePrice + ingredientsCurrentPrice
+        return Price.coffee + ingredientsCurrentPrice
     }
 }
