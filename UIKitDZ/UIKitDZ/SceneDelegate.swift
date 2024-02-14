@@ -10,10 +10,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let viewController = AutorizationViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+
+        let menuVC = MenuViewController()
+        let authVC = AuthorizationViewController()
+        authVC.modalPresentationStyle = .fullScreen
+
+        let navigationController = UINavigationController(rootViewController: menuVC)
         window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()
+
+        navigationController.present(authVC, animated: true)
     }
 }

@@ -196,7 +196,11 @@ final class MenuViewController: UIViewController {
     }
 
     // TODO: - прикрукить дальнейшую логику
+    //сейчас по нажатию на кнопку кофе происходит переход на экран кода из смс
     @objc private func coffeeTouched() {
         print("кнопка нажмакана")
+        let messageVC = MessageViewController()
+        messageVC.modalPresentationStyle = .fullScreen
+        present(messageVC, animated: true)
     }
 }

@@ -89,7 +89,8 @@ final class MessageViewController: UIViewController {
         view.addSubview(codeView)
         view.addSubview(codeTextField)
         view.addSubview(sendAgainButton)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        view.addSubview(backButton)
+        // navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
 
     @objc private func editingChanged() {
@@ -115,8 +116,10 @@ final class MessageViewController: UIViewController {
     }
 
     @objc private func confirmTapped() {
+        print("confirm tapped")
         let thanksVC = ThanksViewController()
-        navigationController?.pushViewController(thanksVC, animated: true)
+        thanksVC.modalPresentationStyle = .fullScreen
+        present(thanksVC, animated: true)
     }
 
     @objc func backTapped() {

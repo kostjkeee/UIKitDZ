@@ -1,10 +1,10 @@
-// AutorizationViewController.swift
+// AuthorizationViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// autorization view controller
-final class AutorizationViewController: UIViewController {
+final class AuthorizationViewController: UIViewController {
     // MARK: - Private Properties
 
     private let logoImageView = {
@@ -150,6 +150,6 @@ final class AutorizationViewController: UIViewController {
     @objc private func loginTapped() {
         let menuVC = MenuViewController()
         menuVC.modalPresentationStyle = .fullScreen
-        navigationController?.present(menuVC, animated: true)
+        present(menuVC, animated: true)
     }
 }

@@ -64,12 +64,9 @@ final class ThanksViewController: UIViewController {
         view.addSubview(tellAboutUsLabel)
     }
 
-    // TODO: - прикрукить дальнейшую логику
-
     @objc private func okayTapped() {
-        guard let navigationController = navigationController else { return }
         let menuVC = MenuViewController()
         menuVC.modalPresentationStyle = .fullScreen
-        navigationController.present(menuVC, animated: true)
+        present(menuVC, animated: true)
     }
 }
