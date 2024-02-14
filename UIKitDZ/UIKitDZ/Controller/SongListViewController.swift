@@ -17,8 +17,8 @@ final class SongListViewController: UIViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var jadenImage: UIButton!
-    @IBOutlet var linkinParkImage: UIButton!
+    @IBOutlet private var jadenImage: UIButton!
+    @IBOutlet private var linkinParkImage: UIButton!
 
     // MARK: - Life Cycle
 
@@ -38,7 +38,6 @@ final class SongListViewController: UIViewController {
             let item = AVPlayerItem(url: urls[index])
             playerItems.append(item)
         }
-        print(playerItems)
     }
 
     private func setupUI() {

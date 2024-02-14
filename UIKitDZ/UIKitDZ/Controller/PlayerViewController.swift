@@ -8,13 +8,13 @@ import UIKit
 final class PlayerViewController: UIViewController {
     // MARK: - IBOutlets
 
-    @IBOutlet var currentSongImageView: UIImageView!
-    @IBOutlet var currentSongName: UILabel!
-    @IBOutlet var currentSongArtist: UILabel!
-    @IBOutlet var currentSongDuration: UISlider!
-    @IBOutlet var volumeSlider: UISlider!
-    @IBOutlet var playButton: UIButton!
-    @IBOutlet var currentSongTotalDuration: UILabel!
+    @IBOutlet private var currentSongImageView: UIImageView!
+    @IBOutlet private var currentSongName: UILabel!
+    @IBOutlet private var currentSongArtist: UILabel!
+    @IBOutlet private var currentSongDuration: UISlider!
+    @IBOutlet private var volumeSlider: UISlider!
+    @IBOutlet private var playButton: UIButton!
+    @IBOutlet private var currentSongTotalDuration: UILabel!
 
     // MARK: - Public Properties
 
@@ -44,8 +44,7 @@ final class PlayerViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         configurePlayer()
-        currentSongImageView.layer.borderWidth = 1
-        currentSongImageView.layer.borderColor = UIColor.white.cgColor
+        setupSongImageView()
     }
 
     // MARK: - Public Methods
@@ -62,7 +61,6 @@ final class PlayerViewController: UIViewController {
     }
 
     @IBAction private func playTapped(_ sender: UIButton) {
-        guard player != nil else { return }
         timer?.fire()
         if isMusicPlaying == true {
             player?.pause()
@@ -97,11 +95,15 @@ final class PlayerViewController: UIViewController {
     }
 
     @IBAction private func songVolumeChanged(_ sender: UISlider) {
-        guard player != nil else { return }
         player?.volume = sender.value
     }
 
     // MARK: - Private Methods
+
+    private func setupSongImageView() {
+        currentSongImageView.layer.borderWidth = 1
+        currentSongImageView.layer.borderColor = UIColor.white.cgColor
+    }
 
     private func setupUI() {
         guard songName != nil,
@@ -137,7 +139,7 @@ final class PlayerViewController: UIViewController {
         let finishDuration = convertTimeToString(time: TimeInterval(songTotalDurationInSeconds))
         currentSongTotalDuration.text = finishDuration
         timer = Timer.scheduledTimer(
-            timeInterval: 0.0,
+            timeInterval: 1.0,
             target: self,
             selector: #selector(musicTimeChanged),
             userInfo: nil,
@@ -152,7 +154,6 @@ final class PlayerViewController: UIViewController {
     }
 
     @objc private func musicTimeChanged() {
-        guard player != nil else { return }
         guard let totalDuration = player?.currentItem?.asset.duration else { return }
         let currentMusicTime = player?.currentTime().seconds ?? 0.0
         let songTotalDurationInSeconds = CMTimeGetSeconds(totalDuration)
