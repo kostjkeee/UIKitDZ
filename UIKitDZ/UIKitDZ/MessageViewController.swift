@@ -6,13 +6,13 @@ import UIKit
 ///  экран с кодом из смс
 final class MessageViewController: UIViewController {
     // MARK: - Private Properties
-    
+
     private let backButton = {
         let button = UIButton(frame: .init(x: 22, y: 64, width: 40, height: 40))
         button.setImage(UIImage(named: AuthorizationViewController.Constants.arrow), for: .normal)
         return button
     }()
-    
+
     private let smsCodeLabel = {
         let label = UILabel(frame: CGRect(x: 117, y: 57, width: 140, height: 30))
         label.text = AuthorizationViewController.Constants.smsCode
@@ -20,7 +20,7 @@ final class MessageViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
-    
+
     private let enterCodeLabel = {
         let label = UILabel(frame: CGRect(x: 35, y: 146, width: 315, height: 44))
         label.text = AuthorizationViewController.Constants.enterSmsCode
@@ -29,7 +29,7 @@ final class MessageViewController: UIViewController {
         label.font = UIFont(name: AuthorizationViewController.Constants.verdana, size: 16)
         return label
     }()
-    
+
     private let codeView = {
         let view = UIView(frame: CGRect(x: 61, y: 217, width: 262, height: 44))
         view.layer.borderWidth = 1.0
@@ -37,7 +37,7 @@ final class MessageViewController: UIViewController {
         view.layer.cornerRadius = 16
         return view
     }()
-    
+
     private let codeTextField = {
         let textField = UITextField(frame: CGRect(x: 92, y: 228, width: 200, height: 22))
         textField.font = UIFont(name: AuthorizationViewController.Constants.verdana, size: 18)
@@ -45,7 +45,7 @@ final class MessageViewController: UIViewController {
         textField.textAlignment = .center
         return textField
     }()
-    
+
     private let sendAgainButton = {
         let button = UIButton(frame: .init(x: 109, y: 288, width: 167, height: 36))
         button.setTitle(AuthorizationViewController.Constants.sendAgain, for: .normal)
@@ -57,7 +57,7 @@ final class MessageViewController: UIViewController {
         button.layer.cornerRadius = 10
         return button
     }()
-    
+
     private let confirmButton = {
         let button = UIButton(frame: .init(x: 20, y: 632, width: 335, height: 44))
         button.isEnabled = false
@@ -67,16 +67,16 @@ final class MessageViewController: UIViewController {
         button.layer.cornerRadius = 12
         return button
     }()
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(confirmButton)
@@ -86,12 +86,12 @@ final class MessageViewController: UIViewController {
         view.addSubview(codeTextField)
         view.addSubview(sendAgainButton)
         view.addSubview(backButton)
-        
+
         codeTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         confirmButton.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
     }
-    
+
     @objc private func editingChanged() {
         guard let code = codeTextField.text,
               !code.isEmpty
@@ -113,12 +113,12 @@ final class MessageViewController: UIViewController {
             alpha: 1.0
         )
     }
-    
+
     @objc private func confirmTapped() {
         let thanksVC = ThanksViewController()
         thanksVC.modalPresentationStyle = .fullScreen
         present(thanksVC, animated: true)
     }
-    
+
     @objc func backTapped() {}
 }
