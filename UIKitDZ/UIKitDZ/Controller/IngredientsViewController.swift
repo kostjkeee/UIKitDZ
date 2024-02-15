@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Для обьявления делегата текущего класса
 protocol IngredientsViewControllerDelegate: AnyObject {
     func ingredientsSelected(
         totalBill: Int,
@@ -12,99 +13,99 @@ protocol IngredientsViewControllerDelegate: AnyObject {
     )
 }
 
-/// Контроллер отвечающий за показ экрана с дополнительными ингредиентами
-class IngredientsViewController: UIViewController {
+/// Дополнительные ингредиенты
+final class IngredientsViewController: UIViewController {
     // MARK: - Private Properties
 
-    var delegate: IngredientsViewControllerDelegate?
+    weak var delegate: IngredientsViewControllerDelegate?
 
     var billCalculator = TotalBillCalculator()
 
-    private lazy var milkLabel = createCustomLabel(
+    private lazy var milkLabel = makeCustomLabel(
         xPosition: 20,
         yPosition: 124,
         width: 275,
         height: 35,
-        font: "Verdana",
+        font: CoffeeViewController.Constants.verdana,
         fontSize: 18,
         color: .red,
-        regularLabelText: "Молоко",
-        attributedLabelText: "50 руб",
+        regularLabelText: TotalBillCalculator.Ingredients.milk,
+        attributedLabelText: String(TotalBillCalculator.Price.milk),
         textAlignment: .left
     )
 
-    private lazy var descriptionLabel = createCustomLabel(
+    private lazy var descriptionLabel = makeCustomLabel(
         xPosition: 40,
         yPosition: 53,
         width: 294,
         height: 44,
-        font: "Verdana-bold",
+        font: CoffeeViewController.Constants.verdanaBold,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Выберите дополнительные \nингредіенты",
+        regularLabelText: CoffeeViewController.Constants.ingredientsChoice,
         attributedLabelText: nil,
         textAlignment: .center
     )
 
-    private lazy var syrupLabel = createCustomLabel(
+    private lazy var syrupLabel = makeCustomLabel(
         xPosition: 20,
         yPosition: 174,
         width: 275,
         height: 35,
-        font: "Verdana",
+        font: CoffeeViewController.Constants.verdana,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Сироп",
-        attributedLabelText: "20 руб",
+        regularLabelText: TotalBillCalculator.Ingredients.syrup,
+        attributedLabelText: String(TotalBillCalculator.Price.syrup),
         textAlignment: .left
     )
 
-    private lazy var soyMilkLabel = createCustomLabel(
+    private lazy var soyMilkLabel = makeCustomLabel(
         xPosition: 20,
         yPosition: 224,
         width: 275,
         height: 35,
-        font: "Verdana",
+        font: CoffeeViewController.Constants.verdana,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Молоко соевое",
-        attributedLabelText: "50 руб",
+        regularLabelText: TotalBillCalculator.Ingredients.soyMilk,
+        attributedLabelText: String(TotalBillCalculator.Price.soyMilk),
         textAlignment: .left
     )
 
-    private lazy var almondMilkLabel = createCustomLabel(
+    private lazy var almondMilkLabel = makeCustomLabel(
         xPosition: 20,
         yPosition: 274,
         width: 275,
         height: 35,
-        font: "Verdana",
+        font: CoffeeViewController.Constants.verdana,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Молоко миндальное",
-        attributedLabelText: "70 руб",
+        regularLabelText: TotalBillCalculator.Ingredients.almondMilk,
+        attributedLabelText: String(TotalBillCalculator.Price.almonMilk),
         textAlignment: .left
     )
 
-    private lazy var espressoLabel = createCustomLabel(
+    private lazy var espressoLabel = makeCustomLabel(
         xPosition: 20,
         yPosition: 324,
         width: 275,
         height: 35,
-        font: "Verdana",
+        font: CoffeeViewController.Constants.verdana,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Эспрессо 50мл",
-        attributedLabelText: "50 руб",
+        regularLabelText: TotalBillCalculator.Ingredients.espresso,
+        attributedLabelText: String(TotalBillCalculator.Price.espresso),
         textAlignment: .left
     )
 
-    private lazy var milkSwitch = createCustomSwitch(xPosition: 301, yPosition: 124, width: 54, height: 35)
-    private lazy var syrupSwitch = createCustomSwitch(xPosition: 301, yPosition: 174, width: 54, height: 35)
-    private lazy var soyMilkSwitch = createCustomSwitch(xPosition: 301, yPosition: 224, width: 54, height: 35)
-    private lazy var almondMilkSwitch = createCustomSwitch(xPosition: 301, yPosition: 274, width: 54, height: 35)
-    private lazy var espressoSwitch = createCustomSwitch(xPosition: 301, yPosition: 324, width: 54, height: 35)
+    private lazy var milkSwitch = makeCustomSwitch(xPosition: 301, yPosition: 124, width: 54, height: 35)
+    private lazy var syrupSwitch = makeCustomSwitch(xPosition: 301, yPosition: 174, width: 54, height: 35)
+    private lazy var soyMilkSwitch = makeCustomSwitch(xPosition: 301, yPosition: 224, width: 54, height: 35)
+    private lazy var almondMilkSwitch = makeCustomSwitch(xPosition: 301, yPosition: 274, width: 54, height: 35)
+    private lazy var espressoSwitch = makeCustomSwitch(xPosition: 301, yPosition: 324, width: 54, height: 35)
 
-    private lazy var cancelButton = createCancelButton(action: #selector(cancelTapped))
+    private lazy var cancelButton = makeCancelButton(action: #selector(cancelTapped))
 
     // MARK: - Life Cycle
 

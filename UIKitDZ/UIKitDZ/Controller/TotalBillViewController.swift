@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Контроллер отвечающий за показ экрана где отображается итоговая сумма заказа
+/// Итоговая сумма заказа
 final class TotalBillViewController: UIViewController {
     // MARK: - Public Properties
 
@@ -12,60 +12,60 @@ final class TotalBillViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private lazy var cancelButton = createCancelButton(action: #selector(cancelTapped))
+    private lazy var cancelButton = makeCancelButton(action: #selector(cancelTapped))
 
     private lazy var payButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 20, y: 632, width: 345, height: 53))
-        button.setTitle("Оплатить", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Verdana-bold", size: 18)
+        button.setTitle(CoffeeViewController.Constants.pay, for: .normal)
+        button.titleLabel?.font = UIFont(name: CoffeeViewController.Constants.verdanaBold, size: 18)
         button.backgroundColor = .myBlue
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
         return button
     }()
 
-    private lazy var leftDecoration = createDecorationImageView(
+    private lazy var leftDecoration = makeDecorationImageView(
         xPosition: 20,
         yPosition: 47,
         width: 100,
         height: 72,
-        imageName: "leftDecor"
+        imageName: CoffeeViewController.Constants.leftDecor
     )
-    private lazy var rightDecoration = createDecorationImageView(
+    private lazy var rightDecoration = makeDecorationImageView(
         xPosition: 260,
         yPosition: 47,
         width: 100,
         height: 72,
-        imageName: "rightDecor"
+        imageName: CoffeeViewController.Constants.rightDecor
     )
-    private lazy var middleDecoration = createDecorationImageView(
+    private lazy var middleDecoration = makeDecorationImageView(
         xPosition: 145,
         yPosition: 538,
         width: 100,
         height: 40,
-        imageName: "middleDecor"
+        imageName: CoffeeViewController.Constants.middleDecor
     )
-    private lazy var orderLabel = createCustomLabel(
+    private lazy var orderLabel = makeCustomLabel(
         xPosition: 120,
         yPosition: 100,
         width: 140,
         height: 30,
-        font: "Verdana-bold",
+        font: CoffeeViewController.Constants.verdanaBold,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Вашъ Заказъ",
+        regularLabelText: CoffeeViewController.Constants.yourOrder,
         attributedLabelText: nil,
         textAlignment: .center
     )
-    private lazy var sumLabel = createCustomLabel(
+    private lazy var sumLabel = makeCustomLabel(
         xPosition: 80,
         yPosition: 499,
         width: 231,
         height: 30,
-        font: "Verdana-bold",
+        font: CoffeeViewController.Constants.verdanaBold,
         fontSize: 18,
         color: .black,
-        regularLabelText: "Цѣна - 200 руб",
+        regularLabelText: CoffeeViewController.Constants.regularPrice,
         attributedLabelText: nil,
         textAlignment: .center
     )
@@ -98,24 +98,24 @@ final class TotalBillViewController: UIViewController {
 
         for (key, value) in items {
             if key == "Американо" || key == "Капучино" || key == "Латте" {
-                let coffee = createCustomLabel(
+                let coffee = makeCustomLabel(
                     xPosition: 20,
                     yPosition: yPosition,
                     width: 150,
                     height: 30,
-                    font: "Verdana-bold",
+                    font: CoffeeViewController.Constants.verdanaBold,
                     fontSize: 16,
                     color: .black,
                     regularLabelText: key,
                     attributedLabelText: nil,
                     textAlignment: .left
                 )
-                let coffeePrice = createCustomLabel(
+                let coffeePrice = makeCustomLabel(
                     xPosition: 225,
                     yPosition: yPosition,
                     width: 130,
                     height: 30,
-                    font: "Verdana-bold",
+                    font: CoffeeViewController.Constants.verdanaBold,
                     fontSize: 16,
                     color: .black,
                     regularLabelText: value,
@@ -126,24 +126,24 @@ final class TotalBillViewController: UIViewController {
                 view.addSubview(coffeePrice)
                 yPosition += 35
             } else {
-                let regularIngredient = createCustomLabel(
+                let regularIngredient = makeCustomLabel(
                     xPosition: 20,
                     yPosition: yPosition,
                     width: 150,
                     height: 30,
-                    font: "Verdana",
+                    font: CoffeeViewController.Constants.verdana,
                     fontSize: 16,
                     color: .black,
                     regularLabelText: key,
                     attributedLabelText: nil,
                     textAlignment: .left
                 )
-                let regularPrice = createCustomLabel(
+                let regularPrice = makeCustomLabel(
                     xPosition: 225,
                     yPosition: yPosition,
                     width: 130,
                     height: 30,
-                    font: "Verdana",
+                    font: CoffeeViewController.Constants.verdana,
                     fontSize: 16,
                     color: .black,
                     regularLabelText: value,
@@ -162,7 +162,6 @@ final class TotalBillViewController: UIViewController {
     }
 
     @objc private func payButtonTapped() {
-        let nextViewController = 
-        navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
+        // TODO: Тут будет пуш к тиммейту
     }
 }

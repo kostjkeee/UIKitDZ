@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// модель оветчающая за логинку вычисления конечной суммы заказа
+/// Вычисление конечной суммы заказа
 struct TotalBillCalculator {
     // MARK: - Constants
 
@@ -27,13 +27,11 @@ struct TotalBillCalculator {
     // MARK: - Public Properties
 
     var isAnyIngredientSelected = false
-
     var isMilkIncluded = false
     var isSyrupIncluded = false
     var isSoyMilkIncluded = false
     var isAlmondMilkIncluded = false
     var isEspressoIncluded = false
-
     var addedIngredientsMap: [String: String] = [:]
 
     // MARK: - Public Methods

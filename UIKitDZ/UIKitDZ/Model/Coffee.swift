@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// Модель, хранящая виды кофе
+/// Виды кофе
 struct Coffee {
     // MARK: - Public Properties
 

@@ -3,25 +3,56 @@
 
 import UIKit
 
-/// Контроллер отвечающий за отображение экрана с выбором кофе и других дополнительных добавок
+/// Выбор кофе
 final class CoffeeViewController: UIViewController {
+    // MARK: - Constants
+
+    public enum Constants {
+        static let lightRoastingText = "Свѣтлая \nобжарка"
+        static let darkRoastingText = "Темная \nобжарка"
+        static let darkRoastingImage = "darkCoffee"
+        static let lightRoastingImage = "lightCoffee"
+        static let checkMark = "checkMark"
+        static let plus = "plus"
+        static let americano = "americano"
+        static let latte = "latte"
+        static let cappuccino = "cappuccino"
+        static let modification = "Модификация"
+        static let extraIngredients = "Дополнительные\nингредiенты"
+        static let myGray = "myGray"
+        static let myFlesh = "myFlesh"
+        static let myBlue = "myBlue"
+        static let promocodeText = "Лови промокод roadmaplove на любой напиток из Кофейнов"
+        static let roastingDetails = "Уточните обжарку зеренъ"
+        static let ingredientsChoice = "Выберите дополнительные \nингредіенты"
+        static let verdana = "Verdana"
+        static let verdanaBold = "Verdana-Bold"
+        static let order = "Заказать"
+        static let pay = "Оплатить"
+        static let leftDecor = "leftDecor"
+        static let rightDecor = "rightDecor"
+        static let middleDecor = "middleDecor"
+        static let yourOrder = "Вашъ Заказъ"
+        static let regularPrice = "Цѣна - 200 руб"
+    }
+
     // MARK: - Private Properties
 
-    private var billCalculator: TotalBillCalculator?
-
     private let coffee = Coffee()
+
+    private var billCalculator: TotalBillCalculator?
 
     private var totalOrderMap: [String: String] = [:]
 
     private var isCofeeChosen = false
 
-    private var isIngredientChosen: Bool = false {
+    private var isIngredientChosen = false {
         didSet {
-            if isIngredientChosen {
-                extraIngredientsButton.setImage(UIImage(named: "checkMark"), for: .normal)
-            } else {
-                extraIngredientsButton.setImage(UIImage(named: "plus"), for: .normal)
-            }
+            isIngredientChosen == true ? extraIngredientsButton
+                .setImage(UIImage(named: Constants.checkMark), for: .normal) : extraIngredientsButton.setImage(
+                    UIImage(named: Constants.plus),
+                    for: .normal
+                )
         }
     }
 
@@ -36,38 +67,38 @@ final class CoffeeViewController: UIViewController {
     private lazy var coffeeImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 128, width: 150, height: 150))
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "americano")
+        imageView.image = UIImage(named: Constants.americano)
         return imageView
     }()
 
     private lazy var modificationLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 15, y: 432, width: 200, height: 30))
-        label.font = UIFont(name: "Verdana-bold", size: 18)
-        label.text = "Модификация"
+        label.font = UIFont(name: Constants.verdanaBold, size: 18)
+        label.text = Constants.modification
         return label
     }()
 
     private lazy var coffeeRoastingLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 15, y: 599, width: 165, height: 34))
-        label.font = UIFont(name: "Verdana", size: 13)
+        label.font = UIFont(name: Constants.verdana, size: 13)
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = "Темная\nобжарка"
+        label.text = Constants.darkRoastingText
         return label
     }()
 
     private lazy var extraIngredientsLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 195, y: 599, width: 165, height: 34))
-        label.font = UIFont(name: "Verdana", size: 13)
+        label.font = UIFont(name: Constants.verdana, size: 13)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = "Дополнительные\nингредiенты"
+        label.text = Constants.extraIngredients
         return label
     }()
 
     private lazy var coffeeRoastingButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 46, y: 499, width: 100, height: 100))
-        button.setImage(UIImage(named: "darkCoffee"), for: .normal)
+        button.setImage(UIImage(named: Constants.darkRoastingImage), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(coffeeRoastingTapped), for: .touchUpInside)
         return button
@@ -75,16 +106,16 @@ final class CoffeeViewController: UIViewController {
 
     private lazy var extraIngredientsButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 262.5, y: 538.4, width: 30, height: 30))
-        button.setImage(UIImage(named: "plus"), for: .normal)
+        button.setImage(UIImage(named: Constants.plus), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(extraIngredientsTapped), for: .touchUpInside)
         return button
 
     }()
 
-    private lazy var billTotalPrice: UILabel = {
+    private lazy var billTotalPriceLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 15, y: 669, width: 345, height: 30))
-        label.font = UIFont(name: "Verdana-bold", size: 18)
+        label.font = UIFont(name: Constants.verdanaBold, size: 18)
         label.textAlignment = .right
         label.text = "Цѣна - \(TotalBillCalculator.Price.coffee) руб"
         return label
@@ -92,19 +123,19 @@ final class CoffeeViewController: UIViewController {
 
     private lazy var orderButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 15, y: 717, width: 345, height: 53))
-        button.setTitle("Заказать", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Verdana-bold", size: 18)
+        button.setTitle(Constants.order, for: .normal)
+        button.titleLabel?.font = UIFont(name: Constants.verdanaBold, size: 18)
         button.layer.cornerRadius = 10
         button.backgroundColor = .myBlue
         button.addTarget(self, action: #selector(orderButtonTappeed), for: .touchUpInside)
         return button
     }()
 
-    private lazy var activityButton: UIButton = {
+    private lazy var activityViewControllerButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
         button.imageView?.tintColor = .black
-        button.addTarget(self, action: #selector(activityTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(activityViewControllerTapped), for: .touchUpInside)
         return button
     }()
 
@@ -115,7 +146,7 @@ final class CoffeeViewController: UIViewController {
         button.backgroundColor = .myGray
         button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
         button.imageView?.tintColor = .black
-        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clearAndReturnToPreviousVC), for: .touchUpInside)
         return button
     }()
 
@@ -131,29 +162,29 @@ final class CoffeeViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         setupNavigationButtons()
-        let ingredients = createCustomView(
+        let ingredients = makeCustomView(
             xPosition: 195,
             yPosition: 482,
             width: 165,
             height: 165,
             corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner],
-            color: "myGray"
+            color: Constants.myGray
         )
-        let coffeeRoasting = createCustomView(
+        let coffeeRoasting = makeCustomView(
             xPosition: 15,
             yPosition: 482,
             width: 165,
             height: 165,
             corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner],
-            color: "myGray"
+            color: Constants.myGray
         )
-        let coffeeView = createCustomView(
+        let coffeeView = makeCustomView(
             xPosition: 0,
             yPosition: 0,
             width: 375,
             height: 346,
             corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner],
-            color: "myFlesh"
+            color: Constants.myFlesh
         )
         view.addSubview(ingredients)
         view.addSubview(coffeeRoasting)
@@ -166,32 +197,32 @@ final class CoffeeViewController: UIViewController {
         view.addSubview(extraIngredientsButton)
         view.addSubview(coffeeSegmentedControl)
         view.addSubview(orderButton)
-        view.addSubview(billTotalPrice)
+        view.addSubview(billTotalPriceLabel)
     }
 
     private func setupNavigationButtons() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityViewControllerButton)
     }
-    
+
     private func clearAllData() {
         totalOrderMap.removeAll()
-        billTotalPrice.text = "Цѣна - \(TotalBillCalculator.Price.coffee) руб"
+        billTotalPriceLabel.text = "Цѣна - \(TotalBillCalculator.Price.coffee) руб"
         isIngredientChosen = false
         coffeeSegmentedControl.selectedSegmentIndex = coffee.coffeeTypes.startIndex
-        coffeeRoastingButton.setImage(UIImage(named: "darkCoffee"), for: .normal)
+        coffeeRoastingButton.setImage(UIImage(named: Constants.darkRoastingImage), for: .normal)
         billCalculator = nil
     }
 
-    @objc private func activityTapped() {
+    @objc private func activityViewControllerTapped() {
         let activityController = UIActivityViewController(
-            activityItems: ["Лови промокод roadmaplove на любой напиток из Кофейнов"],
+            activityItems: [Constants.promocodeText],
             applicationActivities: []
         )
         present(activityController, animated: true)
     }
 
-    @objc private func backButtonTapped() {
+    @objc private func clearAndReturnToPreviousVC() {
         clearAllData()
         navigationController?.popViewController(animated: true)
     }
@@ -224,7 +255,7 @@ final class CoffeeViewController: UIViewController {
 
         let totalBillViewController = TotalBillViewController()
         totalBillViewController.positionsMap = totalOrderMap
-        totalBillViewController.totalBill = billTotalPrice.text
+        totalBillViewController.totalBill = billTotalPriceLabel.text
         present(totalBillViewController, animated: true)
     }
 
@@ -232,11 +263,11 @@ final class CoffeeViewController: UIViewController {
         let selectedIndex = sender.selectedSegmentIndex
         switch selectedIndex {
         case 0:
-            coffeeImageView.image = UIImage(named: "americano")
+            coffeeImageView.image = UIImage(named: Constants.americano)
         case 1:
-            coffeeImageView.image = UIImage(named: "cappuccino")
+            coffeeImageView.image = UIImage(named: Constants.cappuccino)
         case 2:
-            coffeeImageView.image = UIImage(named: "latte")
+            coffeeImageView.image = UIImage(named: Constants.latte)
         default: break
         }
     }
@@ -262,7 +293,7 @@ extension CoffeeViewController: IngredientsViewControllerDelegate {
     ) {
         billCalculator = calculatorInstance
         isIngredientChosen = isAnythingAdded
-        billTotalPrice.text = "Цѣна - \(totalBill) руб"
+        billTotalPriceLabel.text = "Цѣна - \(totalBill) руб"
         totalOrderMap = ingredientsMap
     }
 }

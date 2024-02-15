@@ -1,13 +1,17 @@
 // UIViewController+Extension.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import UIKit
 
-/// Расширяет функционал, во избежание повтора одного и того же кода позволяет всем контроллерам создавать кастомные вью
-/// элементы
+/// Расширение для создания кастомных вью
 extension UIViewController {
-    func createCustomView(
+    /// Создает кастомный UIView
+    /// - Parameter  x: желаемая позиция по x
+    /// - Parameter y: желаемая позиция по y
+    /// - Parameter width: желаемая ширина
+    /// - Parameter height: желаемая высота
+    /// - Returns: экземпляр UIView
+    func makeCustomView(
         xPosition: Int,
         yPosition: Int,
         width: Int,
@@ -23,7 +27,19 @@ extension UIViewController {
         return view
     }
 
-    func createCustomLabel(
+    /// Создает кастомный UILabel
+    /// - Parameter x: желаемая позиция по x
+    /// - Parameter y: желаемая позиция по y
+    /// - Parameter width:  желаемая ширина
+    /// - Parameter height:  желаемая высота
+    /// - Parameter font:  желаемый шрифт
+    /// - Parameter fontSize:  желаемый размер шрифта
+    /// - Parameter color:  желаемый цвет текста
+    /// - Parameter regularLabelText:  желаемый текст без модификаций
+    /// - Parameter attributedLabelText:  желаемый текст с модификациями
+    /// - Parameter textAlignment:  желаемое выравнивание текста
+    /// - Returns: экземпляр UILabel
+    func makeCustomLabel(
         xPosition: Int,
         yPosition: Int,
         width: Int,
@@ -58,13 +74,22 @@ extension UIViewController {
         return label
     }
 
-    func createCustomSwitch(xPosition: Int, yPosition: Int, width: Int, height: Int) -> UISwitch {
+    /// Создает кастомный UISwitch
+    /// - Parameter x: желаемая позиция по x
+    /// - Parameter y: желаемая позиция по y
+    /// - Parameter width - желаемая ширина
+    /// - Parameter height - желаемая высота
+    /// - Returns: экземпляр UISwitch
+    func makeCustomSwitch(xPosition: Int, yPosition: Int, width: Int, height: Int) -> UISwitch {
         let customSwitch = UISwitch(frame: CGRect(x: xPosition, y: yPosition, width: width, height: height))
         customSwitch.isOn = false
         return customSwitch
     }
 
-    func createCancelButton(action: Selector?) -> UIButton {
+    /// Создает кастомный UIButton
+    /// - Parameter action: желаемое действие при нажатии на кнопку (@objc func)
+    /// - Returns: экземпляр UIButton
+    func makeCancelButton(action: Selector?) -> UIButton {
         guard let safeAction = action else { return UIButton() }
         let button = UIButton(frame: CGRect(x: 20, y: 26, width: 14, height: 14))
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -74,7 +99,14 @@ extension UIViewController {
         return button
     }
 
-    func createDecorationImageView(
+    /// Создает кастомный UIImageView
+    /// - Parameter x: желаемая позиция по x
+    /// - Parameter y: желаемая позиция по y
+    /// - Parameter width - желаемая ширина
+    /// - Parameter height - желаемая высота
+    /// - Parameter imageName: желаемое изображение
+    /// - Returns: экземпляр UIImageView
+    func makeDecorationImageView(
         xPosition: Int,
         yPosition: Int,
         width: Int,
