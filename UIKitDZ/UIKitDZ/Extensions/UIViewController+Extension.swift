@@ -55,6 +55,7 @@ extension UIViewController {
         label.font = UIFont(name: font, size: fontSize)
         label.textColor = color
         label.textAlignment = textAlignment
+        label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
 
         if let safeAttributedText = attributedLabelText {

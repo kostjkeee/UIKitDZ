@@ -10,6 +10,8 @@ final class TotalBillViewController: UIViewController {
     var positionsMap: [String: String]?
     var totalBill: String?
 
+    var presentingNavController: UINavigationController?
+
     // MARK: - Private Properties
 
     private lazy var cancelButton = makeCancelButton(action: #selector(cancelTapped))
@@ -69,6 +71,16 @@ final class TotalBillViewController: UIViewController {
         attributedLabelText: nil,
         textAlignment: .center
     )
+
+    init(navigationController: UINavigationController) {
+        super.init(nibName: nil, bundle: nil)
+        presentingNavController = navigationController
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
 
@@ -158,10 +170,14 @@ final class TotalBillViewController: UIViewController {
     }
 
     @objc private func cancelTapped() {
+        presentingNavController?.popToViewController(MenuViewController(), animated: true)
         dismiss(animated: true)
     }
 
     @objc private func payButtonTapped() {
-        // TODO: Тут будет пуш к тиммейту
+        let messageViewController = MessageViewController()
+        messageViewController.presentingNavVC = presentingNavController
+        dismiss(animated: true)
+        presentingNavController?.pushViewController(messageViewController, animated: true)
     }
 }

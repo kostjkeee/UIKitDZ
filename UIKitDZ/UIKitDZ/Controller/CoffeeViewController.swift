@@ -253,10 +253,12 @@ final class CoffeeViewController: UIViewController {
         totalOrderMap["\(coffee.coffeeTypes[currentIndex])"] = "\(TotalBillCalculator.Price.coffee)"
         isCofeeChosen = true
 
-        let totalBillViewController = TotalBillViewController()
-        totalBillViewController.positionsMap = totalOrderMap
-        totalBillViewController.totalBill = billTotalPriceLabel.text
-        present(totalBillViewController, animated: true)
+        if let safeNavVC = navigationController {
+            let totalBillViewController = TotalBillViewController(navigationController: safeNavVC)
+            totalBillViewController.positionsMap = totalOrderMap
+            totalBillViewController.totalBill = billTotalPriceLabel.text
+            present(totalBillViewController, animated: true)
+        }
     }
 
     @objc private func coffeeSelected(sender: UISegmentedControl) {
