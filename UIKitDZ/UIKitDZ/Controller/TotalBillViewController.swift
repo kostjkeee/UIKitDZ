@@ -20,7 +20,7 @@ final class TotalBillViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 20, y: 632, width: 345, height: 53))
         button.setTitle(CoffeeViewController.Constants.pay, for: .normal)
         button.titleLabel?.font = UIFont(name: CoffeeViewController.Constants.verdanaBold, size: 18)
-        button.backgroundColor = .myBlue
+        button.backgroundColor = UIColor(named: "myBlue")
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
         return button
@@ -170,8 +170,15 @@ final class TotalBillViewController: UIViewController {
     }
 
     @objc private func cancelTapped() {
-        presentingNavController?.popToViewController(MenuViewController(), animated: true)
-        dismiss(animated: true)
+        if let controllers = presentingNavController?.viewControllers {
+            for controller in controllers {
+                if let menuVC = controller as? MenuViewController {
+                    dismiss(animated: true)
+                    presentingNavController?.popToViewController(menuVC, animated: true)
+                    break
+                }
+            }
+        }
     }
 
     @objc private func payButtonTapped() {

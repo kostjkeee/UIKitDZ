@@ -100,8 +100,6 @@ final class AuthorizationViewController: UIViewController {
     private let showPasswordButton = {
         let button = UIButton(frame: .init(x: 332, y: 433, width: 22, height: 19))
         button.setImage(UIImage(named: Constants.invisible), for: .normal)
-        button.addTarget(AuthorizationViewController.self, action: #selector(showPasswordTapped), for: .touchUpInside)
-
         return button
     }()
 
@@ -140,22 +138,6 @@ final class AuthorizationViewController: UIViewController {
         view.addSubview(loginButton)
 
         setutButtonsAndTextfields()
-        //        loginTextField.addTarget(
-        //            self,
-        //            action: #selector(editingChanged),
-        //            for: .editingChanged
-        //        )
-        //
-        //        passwordTextField.addTarget(
-        //            self,
-        //            action: #selector(editingChanged),
-        //            for: .editingChanged)
-        //
-        //        loginButton.addTarget(
-        //            self,
-        //            action: #selector(loginTapped),
-        //            for: .touchUpInside)
-
         addLineFor(loginTextField)
         addLineFor(passwordTextField)
     }
@@ -176,6 +158,12 @@ final class AuthorizationViewController: UIViewController {
         loginButton.addTarget(
             self,
             action: #selector(loginTapped),
+            for: .touchUpInside
+        )
+
+        showPasswordButton.addTarget(
+            self,
+            action: #selector(showPasswordTapped),
             for: .touchUpInside
         )
     }
@@ -222,6 +210,6 @@ final class AuthorizationViewController: UIViewController {
 
     @objc private func loginTapped() {
         let menuViewController = MenuViewController()
-        navigationController?.pushViewController(menuViewController, animated: true)
+        navigationController?.setViewControllers([menuViewController], animated: true)
     }
 }

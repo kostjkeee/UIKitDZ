@@ -12,7 +12,7 @@ final class MessageViewController: UIViewController {
     // MARK: - Private Properties
 
     private let backButton = {
-        let button = UIButton(frame: .init(x: 22, y: 64, width: 40, height: 40))
+        let button = UIButton(frame: .init(x: 22, y: 74, width: 40, height: 40))
         button.setImage(UIImage(named: AuthorizationViewController.Constants.arrow), for: .normal)
         return button
     }()
@@ -77,6 +77,7 @@ final class MessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        print("Navigation Controller menu: \(navigationController)")
     }
 
     // MARK: - Private Methods
@@ -122,11 +123,12 @@ final class MessageViewController: UIViewController {
     @objc private func confirmTapped() {
         let thanksVC = ThanksViewController()
         thanksVC.modalPresentationStyle = .fullScreen
-        thanksVC.presentingNavVC = presentingNavVC
-        present(thanksVC, animated: true)
+        let navigationController = UINavigationController(rootViewController: thanksVC)
+        present(navigationController, animated: true)
     }
 
     @objc func backTapped() {
+        print("yyyyyy")
         presentingNavVC?.popViewController(animated: true)
     }
 }

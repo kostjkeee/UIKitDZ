@@ -53,6 +53,7 @@ final class ThanksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        print("Navigation Controller: \(navigationController)")
     }
 
     // MARK: - Private Methods
@@ -68,8 +69,9 @@ final class ThanksViewController: UIViewController {
     }
 
     @objc private func okayTapped() {
-        let menuVC = MenuViewController()
-        print("it exists")
-        presentingNavVC?.pushViewController(menuVC, animated: true)
+        let menuViewController = MenuViewController()
+        let navController = UINavigationController(rootViewController: menuViewController)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
     }
 }

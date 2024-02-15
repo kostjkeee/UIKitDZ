@@ -126,7 +126,7 @@ final class CoffeeViewController: UIViewController {
         button.setTitle(Constants.order, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.verdanaBold, size: 18)
         button.layer.cornerRadius = 10
-        button.backgroundColor = .myBlue
+        button.backgroundColor = UIColor(named: "myBlue")
         button.addTarget(self, action: #selector(orderButtonTappeed), for: .touchUpInside)
         return button
     }()
@@ -143,7 +143,7 @@ final class CoffeeViewController: UIViewController {
         let button = UIButton()
         button.frame.size = CGSize(width: 44, height: 44)
         button.layer.cornerRadius = button.frame.width / 2
-        button.backgroundColor = .myGray
+        button.backgroundColor = UIColor(named: "myGray")
         button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
         button.imageView?.tintColor = .black
         button.addTarget(self, action: #selector(clearAndReturnToPreviousVC), for: .touchUpInside)

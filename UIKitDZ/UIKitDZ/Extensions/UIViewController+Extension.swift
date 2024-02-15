@@ -65,7 +65,7 @@ extension UIViewController {
             )
             let attributedText = NSAttributedString(
                 string: " +\(safeAttributedText)",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.myGreen]
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "myGreen")]
             )
             regularText.append(attributedText)
             label.attributedText = regularText
