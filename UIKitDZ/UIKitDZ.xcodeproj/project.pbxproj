@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */; };
-		8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */; };
+		8B0304002B7B1AF3005A7574 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0303FF2B7B1AF3005A7574 /* Colors.xcassets */; };
+		8B0304032B7B24F6005A7574 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0304022B7B24F6005A7574 /* Coffee.swift */; };
+		8B0304052B7B4455005A7574 /* CoffeeRoastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0304042B7B4455005A7574 /* CoffeeRoastingViewController.swift */; };
+		8B0304072B7B4945005A7574 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0304062B7B4945005A7574 /* UIViewController+Extension.swift */; };
+		8B0304092B7B6785005A7574 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0304082B7B6785005A7574 /* IngredientsViewController.swift */; };
+		8B03040B2B7B8526005A7574 /* TotalBillCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03040A2B7B8526005A7574 /* TotalBillCalculator.swift */; };
+		8BA97C2F2B7DE367001D1B39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA97C2D2B7DE367001D1B39 /* AppDelegate.swift */; };
+		8BA97C302B7DE367001D1B39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA97C2E2B7DE367001D1B39 /* SceneDelegate.swift */; };
+		8BA97C322B7DE3EF001D1B39 /* CoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA97C312B7DE3EF001D1B39 /* CoffeeViewController.swift */; };
+		8BAF36112B7B8EAE00580F1E /* TotalBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF36102B7B8EAE00580F1E /* TotalBillViewController.swift */; };
 		8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */; };
 		8BEE89652B73C1A600E037E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE89642B73C1A600E037E4 /* Assets.xcassets */; };
 		8BEE89682B73C1A600E037E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE89662B73C1A600E037E4 /* LaunchScreen.storyboard */; };
@@ -18,9 +26,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B0303FF2B7B1AF3005A7574 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8B0304022B7B24F6005A7574 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		8B0304042B7B4455005A7574 /* CoffeeRoastingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeRoastingViewController.swift; sourceTree = "<group>"; };
+		8B0304062B7B4945005A7574 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		8B0304082B7B6785005A7574 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		8B03040A2B7B8526005A7574 /* TotalBillCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBillCalculator.swift; sourceTree = "<group>"; };
+		8BA97C2D2B7DE367001D1B39 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BA97C2E2B7DE367001D1B39 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8BA97C312B7DE3EF001D1B39 /* CoffeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeViewController.swift; sourceTree = "<group>"; };
+		8BAF36102B7B8EAE00580F1E /* TotalBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBillViewController.swift; sourceTree = "<group>"; };
 		8BEE89582B73C1A500E037E4 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		8BEE89642B73C1A600E037E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BEE89672B73C1A600E037E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +57,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0303FD2B7B1AA6005A7574 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BA97C312B7DE3EF001D1B39 /* CoffeeViewController.swift */,
+				8B0304042B7B4455005A7574 /* CoffeeRoastingViewController.swift */,
+				8B0304082B7B6785005A7574 /* IngredientsViewController.swift */,
+				8BAF36102B7B8EAE00580F1E /* TotalBillViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B0303FE2B7B1AB0005A7574 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B0304022B7B24F6005A7574 /* Coffee.swift */,
+				8B03040A2B7B8526005A7574 /* TotalBillCalculator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B0304012B7B1C2C005A7574 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8BA97C2D2B7DE367001D1B39 /* AppDelegate.swift */,
+				8BA97C2E2B7DE367001D1B39 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B63B7202B7C7CFC00AD3079 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B0304062B7B4945005A7574 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8BEE894F2B73C1A500E037E4 = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +113,16 @@
 		8BEE895A2B73C1A500E037E4 /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
-				8BEE895B2B73C1A500E037E4 /* AppDelegate.swift */,
-				8BEE895D2B73C1A500E037E4 /* SceneDelegate.swift */,
+				8B0304012B7B1C2C005A7574 /* Supporting Files */,
+				8B0303FE2B7B1AB0005A7574 /* Model */,
+				8B0303FD2B7B1AA6005A7574 /* Controller */,
 				8BEE895F2B73C1A500E037E4 /* AuthorizationViewController.swift */,
 				DA8755642B7B7094009B8CFF /* MenuViewController.swift */,
 				DA8755662B7B9F12009B8CFF /* MessageViewController.swift */,
 				DA8755682B7BA948009B8CFF /* ThanksViewController.swift */,
+				8B63B7202B7C7CFC00AD3079 /* Extensions */,
 				8BEE89642B73C1A600E037E4 /* Assets.xcassets */,
+				8B0303FF2B7B1AF3005A7574 /* Colors.xcassets */,
 				8BEE89662B73C1A600E037E4 /* LaunchScreen.storyboard */,
 				8BEE89692B73C1A600E037E4 /* Info.plist */,
 			);
@@ -134,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BEE89682B73C1A600E037E4 /* LaunchScreen.storyboard in Resources */,
+				8B0304002B7B1AF3005A7574 /* Colors.xcassets in Resources */,
 				8BEE89652B73C1A600E037E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,9 +245,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA97C2F2B7DE367001D1B39 /* AppDelegate.swift in Sources */,
+				8B0304072B7B4945005A7574 /* UIViewController+Extension.swift in Sources */,
 				8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */,
-				8BEE895C2B73C1A500E037E4 /* AppDelegate.swift in Sources */,
-				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,
+				8BEE89602B73C1A500E037E4 /* AuthorizationViewController.swift in Sources */,
+				8BA97C322B7DE3EF001D1B39 /* CoffeeViewController.swift in Sources */,
+				8B0304052B7B4455005A7574 /* CoffeeRoastingViewController.swift in Sources */,
+				8B0304092B7B6785005A7574 /* IngredientsViewController.swift in Sources */,
+				8B03040B2B7B8526005A7574 /* TotalBillCalculator.swift in Sources */,
+				8B0304032B7B24F6005A7574 /* Coffee.swift in Sources */,
+				8BA97C302B7DE367001D1B39 /* SceneDelegate.swift in Sources */,
+				8BAF36112B7B8EAE00580F1E /* TotalBillViewController.swift in Sources */,
 				DA8755652B7B7094009B8CFF /* MenuViewController.swift in Sources */,
 				DA8755672B7B9F12009B8CFF /* MessageViewController.swift in Sources */,
 				DA8755692B7BA948009B8CFF /* ThanksViewController.swift in Sources */,

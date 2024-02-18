@@ -6,7 +6,7 @@ import UIKit
 /// экран авторизации
 final class AuthorizationViewController: UIViewController {
     // MARK: - Constants
-    
+
     enum Constants {
         static let cafeName = "КофеиновЪ"
         static let authorization = "Авторизация"
@@ -42,22 +42,22 @@ final class AuthorizationViewController: UIViewController {
         """
         static let okay = "Хорошо"
     }
-    
+
     // MARK: - Visual Component
-    
+
     private let logoImageView = {
         let imageView = UIImageView(image: UIImage(named: Constants.cafeName))
         imageView.frame = CGRect(x: 100, y: 103, width: 175, height: 76)
         return imageView
     }()
-    
+
     private let backGroundView = {
         let view = UIView(frame: CGRect(x: 0, y: 248, width: 375, height: 564))
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         return view
     }()
-    
+
     private let autorizationLabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 280, width: 195, height: 31))
         label.text = Constants.authorization
@@ -65,7 +65,7 @@ final class AuthorizationViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 26)
         return label
     }()
-    
+
     private let loginLabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 332, width: 175, height: 19))
         label.text = Constants.login
@@ -73,7 +73,7 @@ final class AuthorizationViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
-    
+
     private let passwordLabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 407, width: 175, height: 19))
         label.text = Constants.password
@@ -81,14 +81,14 @@ final class AuthorizationViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
-    
+
     private let loginTextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 361, width: 335, height: 17))
         textField.font = UIFont(name: Constants.verdana, size: 14)
         textField.placeholder = Constants.enterEmail
         return textField
     }()
-    
+
     private let passwordTextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 436, width: 335, height: 17))
         textField.font = UIFont(name: Constants.verdana, size: 14)
@@ -96,15 +96,13 @@ final class AuthorizationViewController: UIViewController {
         textField.placeholder = Constants.enterPassword
         return textField
     }()
-    
+
     private let showPasswordButton = {
         let button = UIButton(frame: .init(x: 332, y: 433, width: 22, height: 19))
         button.setImage(UIImage(named: Constants.invisible), for: .normal)
-        button.addTarget(AuthorizationViewController.self, action: #selector(showPasswordTapped), for: .touchUpInside)
-        
         return button
     }()
-    
+
     private let loginButton = {
         let button = UIButton(frame: .init(x: 20, y: 664, width: 335, height: 44))
         button.isEnabled = false
@@ -112,22 +110,22 @@ final class AuthorizationViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 89.0 / 250.0, green: 190.0 / 250.0, blue: 199.0 / 250.0, alpha: 0.3)
         button.layer.cornerRadius = 12
-        
+
         return button
     }()
-    
+
     // MARK: - LifeCycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func setupUI() {
         view.backgroundColor = UIColor(red: 120.0 / 250.0, green: 84.0 / 250.0, blue: 49.0 / 250.0, alpha: 1.0)
-        
+
         view.addSubview(logoImageView)
         view.addSubview(backGroundView)
         view.addSubview(autorizationLabel)
@@ -138,48 +136,38 @@ final class AuthorizationViewController: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(showPasswordButton)
         view.addSubview(loginButton)
-        
+
         setutButtonsAndTextfields()
-        //        loginTextField.addTarget(
-        //            self,
-        //            action: #selector(editingChanged),
-        //            for: .editingChanged
-        //        )
-        //
-        //        passwordTextField.addTarget(
-        //            self,
-        //            action: #selector(editingChanged),
-        //            for: .editingChanged)
-        //
-        //        loginButton.addTarget(
-        //            self,
-        //            action: #selector(loginTapped),
-        //            for: .touchUpInside)
-        
         addLineFor(loginTextField)
         addLineFor(passwordTextField)
     }
-    
+
     private func setutButtonsAndTextfields() {
         loginTextField.addTarget(
             self,
             action: #selector(editingChanged),
             for: .editingChanged
         )
-        
+
         passwordTextField.addTarget(
             self,
             action: #selector(editingChanged),
             for: .editingChanged
         )
-        
+
         loginButton.addTarget(
             self,
             action: #selector(loginTapped),
             for: .touchUpInside
         )
+
+        showPasswordButton.addTarget(
+            self,
+            action: #selector(showPasswordTapped),
+            for: .touchUpInside
+        )
     }
-    
+
     private func addLineFor(_ textFiled: UITextField) {
         let border = CALayer()
         let width = CGFloat(1.0)
@@ -194,7 +182,7 @@ final class AuthorizationViewController: UIViewController {
         textFiled.layer.addSublayer(border)
         textFiled.layer.masksToBounds = true
     }
-    
+
     @objc private func editingChanged(_ textField: UITextField) {
         guard let login = loginTextField.text,
               !login.isEmpty,
@@ -213,16 +201,15 @@ final class AuthorizationViewController: UIViewController {
         loginButton.isEnabled = true
         loginButton.backgroundColor = UIColor(red: 89.0 / 250.0, green: 190.0 / 250.0, blue: 199.0 / 250.0, alpha: 1.0)
     }
-    
+
     @objc private func showPasswordTapped() {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
         let imageName = passwordTextField.isSecureTextEntry ? Constants.invisible : Constants.visible
         showPasswordButton.setImage(UIImage(named: imageName), for: .normal)
     }
-    
+
     @objc private func loginTapped() {
         let menuViewController = MenuViewController()
-        menuViewController.modalPresentationStyle = .fullScreen
-        present(menuViewController, animated: true)
+        navigationController?.setViewControllers([menuViewController], animated: true)
     }
 }
