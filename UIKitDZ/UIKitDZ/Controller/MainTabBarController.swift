@@ -4,7 +4,9 @@
 import UIKit
 
 /// Инициализирует  все контроллеры для таб бара
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
+    // MARK: - Constants
+
     enum Constants {
         static let feedTabBarName = "Лента"
         static let notificationsTabBarName = "Уведомления"
@@ -16,6 +18,8 @@ class MainTabBarController: UITabBarController {
         static let verdana = "Verdana"
         static let verdanaBold = "Verdana-Bold"
     }
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -3,81 +3,100 @@
 
 import UIKit
 
-/// кастомная ячейка для постов
+/// Кастомная ячейка для постов
 class PostCell: UITableViewCell {
+    // MARK: - Constants
+
+    enum Constants {
+        static let manImageName = "man"
+        static let avatarLabelText = "tur_v_dagestan"
+        static let someImageName = "image1"
+        static let anotherImageName = "image2"
+        static let ellipsImageName = "ellipsis"
+        static let heartImageName = "heart"
+        static let messageImageName = "message-circle"
+        static let paperPlaneImageName = "paperplane"
+        static let bookmarkImageName = "bookmark"
+        static let likeCountLabelText = "Нравится 201"
+        static let commentLabelText = "Комментировать ..."
+        static let passedTimeLabelText = "10 минут назад"
+        static let decriptionLabelText =
+            "Насладитесь красотой природы. Забронировать \nтур в Дагестан можно уже сейчас!"
+    }
+
     static let identifier = "PostCell"
 
-    let images = ["image1", "image2"]
+    // MARK: - Visual Components
 
-    let scrollView = UIScrollView()
-    let pageControl = UIPageControl()
+    private let scrollView = UIScrollView()
+    private let pageControl = UIPageControl()
 
-    var avatarImageView: UIImageView = {
+    private var avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "man")
+        imageView.image = UIImage(named: Constants.manImageName)
         return imageView
     }()
 
-    var avatarLabel: UILabel = {
+    private var avatarLabel: UILabel = {
         let label = UILabel()
-        label.text = "tur_v_dagestan"
+        label.text = Constants.avatarLabelText
         label.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 12)
         label.textAlignment = .left
         return label
     }()
 
-    var mainImageView: UIImageView = {
+    private var mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "image1")
+        imageView.image = UIImage(named: Constants.someImageName)
         return imageView
     }()
 
-    var seondMainImageView: UIImageView = {
+    private var seondMainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "image2")
+        imageView.image = UIImage(named: Constants.anotherImageName)
         return imageView
     }()
 
-    var optionsImageView: UIImageView = {
+    private var optionsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "ellipsis")
+        imageView.image = UIImage(systemName: Constants.ellipsImageName)
         return imageView
     }()
 
-    var likeImageView: UIImageView = {
+    private var likeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "heart")
+        imageView.image = UIImage(systemName: Constants.heartImageName)
         return imageView
     }()
 
-    var commentImageView: UIImageView = {
+    private var commentImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "message-circle")
+        imageView.image = UIImage(named: Constants.messageImageName)
         return imageView
     }()
 
-    var shareImageView: UIImageView = {
+    private var shareImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "paperplane")
+        imageView.image = UIImage(systemName: Constants.paperPlaneImageName)
         return imageView
     }()
 
-    var bookmarkImageView: UIImageView = {
+    private var bookmarkImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "bookmark")
+        imageView.image = UIImage(systemName: Constants.bookmarkImageName)
         return imageView
     }()
 
-    var likeLabel: UILabel = {
+    private var likeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Нравится 201"
+        label.text = Constants.likeCountLabelText
         label.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 10)
         label.textAlignment = .left
         label.textColor = .black
         return label
     }()
 
-    var otherCommentLabel: UILabel = {
+    private var otherCommentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 10)
         label.numberOfLines = 0
@@ -86,31 +105,46 @@ class PostCell: UITableViewCell {
         return label
     }()
 
-    var myImageView: UIImageView = {
+    private var myImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: FeedViewController.Constants.myStoryImage)
         return imageView
     }()
 
-    var myCommentLabel: UILabel = {
+    private var myCommentLabel: UILabel = {
         let label = UILabel()
-        label.text = "Комментировать ..."
+        label.text = Constants.commentLabelText
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 10)
         label.textAlignment = .left
         label.textColor = .lightGray
         return label
     }()
 
-    var lastCommentTimeLabel: UILabel = {
+    private var lastCommentTimeLabel: UILabel = {
         let label = UILabel()
-        label.text = "10 минут назад"
+        label.text = Constants.passedTimeLabelText
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 10)
         label.textColor = .lightGray
         label.textAlignment = .left
         return label
     }()
 
-    func setupUI() {
+    // MARK: - Initializers
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+        setupConstraints()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Private Methods
+
+    private func setupUI() {
         scrollView.delegate = self
         contentView.addSubview(scrollView)
         scrollView.addSubview(mainImageView)
@@ -128,21 +162,17 @@ class PostCell: UITableViewCell {
         contentView.addSubview(myCommentLabel)
         contentView.addSubview(lastCommentTimeLabel)
         contentView.addSubview(pageControl)
-
-        pageControl.tintColor = .black
+        pageControl.pageIndicatorTintColor = .gray
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.backgroundStyle = .automatic
-        pageControl.numberOfPages = images.count
+        pageControl.numberOfPages = 2
         scrollView.isPagingEnabled = true
-
         avatarImageView.layer.cornerRadius = 15
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.clipsToBounds = true
-
         myImageView.layer.cornerRadius = 10
         myImageView.contentMode = .scaleAspectFill
         myImageView.clipsToBounds = true
-
         optionsImageView.tintColor = .black
         likeImageView.tintColor = .black
         likeImageView.contentMode = .scaleAspectFill
@@ -152,29 +182,26 @@ class PostCell: UITableViewCell {
         shareImageView.contentMode = .scaleAspectFill
         bookmarkImageView.tintColor = .black
         bookmarkImageView.contentMode = .scaleAspectFill
-
         let attributedString = NSMutableAttributedString(
-            string: "tur_v_dagestan ",
+            string: "\(Constants.avatarLabelText) ",
             attributes: [NSAttributedString.Key.font: UIFont(
                 name: MainTabBarController.Constants.verdanaBold,
                 size: 10
             ) ?? ""]
         )
         let regString = NSAttributedString(
-            string: "Насладитесь красотой природы. Забронировать \nтур в Дагестан можно уже сейчас!",
+            string: Constants.decriptionLabelText,
             attributes: [
                 NSAttributedString.Key
                     .font: UIFont(name: MainTabBarController.Constants.verdana, size: 10) ?? ""
             ]
         )
         attributedString.append(regString)
-
         otherCommentLabel.attributedText = attributedString
-        scrollView.backgroundColor = .red
         scrollView.showsHorizontalScrollIndicator = false
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -196,99 +223,71 @@ class PostCell: UITableViewCell {
             scrollView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            scrollView.widthAnchor.constraint(equalToConstant: 375),
             scrollView.heightAnchor.constraint(equalToConstant: 239),
-
             mainImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             mainImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             mainImageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainImageView.widthAnchor.constraint(equalToConstant: 375),
             mainImageView.heightAnchor.constraint(equalToConstant: 239),
-
             seondMainImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             seondMainImageView.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor),
             seondMainImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             seondMainImageView.widthAnchor.constraint(equalToConstant: 375),
             seondMainImageView.heightAnchor.constraint(equalToConstant: 239),
-
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             avatarImageView.widthAnchor.constraint(equalToConstant: 30),
             avatarImageView.heightAnchor.constraint(equalToConstant: 30),
-
             avatarLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 6),
             avatarLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
-
             optionsImageView.centerYAnchor.constraint(equalTo: avatarLabel.centerYAnchor),
             optionsImageView.leadingAnchor.constraint(equalTo: avatarLabel.trailingAnchor, constant: 187),
-
             likeImageView.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             likeImageView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             likeImageView.widthAnchor.constraint(equalToConstant: 24),
             likeImageView.heightAnchor.constraint(equalToConstant: 24),
-
             commentImageView.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 8),
             commentImageView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             commentImageView.widthAnchor.constraint(equalToConstant: 24),
             commentImageView.heightAnchor.constraint(equalToConstant: 24),
-
             shareImageView.leadingAnchor.constraint(equalTo: commentImageView.trailingAnchor, constant: 8),
             shareImageView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             shareImageView.widthAnchor.constraint(equalToConstant: 24),
             shareImageView.heightAnchor.constraint(equalToConstant: 24),
-
-            pageControl.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 8),
-            pageControl.centerXAnchor.constraint(equalTo: mainImageView.centerXAnchor),
-//            pageControl.widthAnchor.constraint(equalToConstant: 24),
-//            pageControl.heightAnchor.constraint(equalToConstant: 24),
-
+            pageControl.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8),
+            pageControl.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             bookmarkImageView.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
             bookmarkImageView.trailingAnchor.constraint(equalTo: optionsImageView.trailingAnchor),
             bookmarkImageView.widthAnchor.constraint(equalToConstant: 24),
             bookmarkImageView.heightAnchor.constraint(equalToConstant: 24),
-
             likeLabel.leadingAnchor.constraint(equalTo: likeImageView.leadingAnchor),
             likeLabel.topAnchor.constraint(equalTo: likeImageView.bottomAnchor, constant: 6),
             likeLabel.heightAnchor.constraint(equalToConstant: 15),
             likeLabel.widthAnchor.constraint(equalToConstant: 107),
-
             otherCommentLabel.leadingAnchor.constraint(equalTo: likeLabel.leadingAnchor),
             otherCommentLabel.topAnchor.constraint(equalTo: likeLabel.bottomAnchor, constant: 6),
             otherCommentLabel.widthAnchor.constraint(equalToConstant: 361),
             otherCommentLabel.heightAnchor.constraint(equalToConstant: 30),
-
             myImageView.leadingAnchor.constraint(equalTo: likeLabel.leadingAnchor),
             myImageView.topAnchor.constraint(equalTo: otherCommentLabel.bottomAnchor, constant: 4),
             myImageView.widthAnchor.constraint(equalToConstant: 20),
             myImageView.heightAnchor.constraint(equalToConstant: 20),
-
             myCommentLabel.leadingAnchor.constraint(equalTo: myImageView.trailingAnchor, constant: 3),
             myCommentLabel.topAnchor.constraint(equalTo: otherCommentLabel.bottomAnchor, constant: 6),
             myCommentLabel.widthAnchor.constraint(equalToConstant: 150),
             myCommentLabel.heightAnchor.constraint(equalToConstant: 15),
-
             lastCommentTimeLabel.leadingAnchor.constraint(equalTo: likeLabel.leadingAnchor),
             lastCommentTimeLabel.topAnchor.constraint(equalTo: myCommentLabel.bottomAnchor, constant: 7),
             lastCommentTimeLabel.widthAnchor.constraint(equalToConstant: 150),
             lastCommentTimeLabel.heightAnchor.constraint(equalToConstant: 15)
-
         ])
-    }
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
-        setupConstraints()
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
+// MARK: - PostCell + UIScrollViewDelegate
+
 extension PostCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(scrollView.contentOffset.x / contentView.bounds.width)
+        pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
     }
 }

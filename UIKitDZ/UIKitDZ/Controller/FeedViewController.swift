@@ -4,7 +4,7 @@
 import UIKit
 
 /// Экран со всем медиа контентом
-class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
@@ -14,6 +14,26 @@ class FeedViewController: UIViewController {
         static let myStoryImage = "avatarImage2"
     }
 
+    // MARK: - Visual Components
+
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(StoryCell.self, forCellReuseIdentifier: StoryCell.identifier)
+        tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.identifier)
+        tableView.register(RecommendCell.self, forCellReuseIdentifier: RecommendCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+
+    // MARK: - Private Properties
+
+    private let contentType: [FeedCellTypes] = [.story, .firstPost, .recommendation, .otherPosts]
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -21,23 +41,12 @@ class FeedViewController: UIViewController {
         setupUI()
     }
 
-    // MARK: - Visual Components
-
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(RecommendCell.self, forCellReuseIdentifier: RecommendCell.identifier)
-        return tableView
-    }()
-
     // MARK: - Private Methods
 
     private func setupUI() {
+        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.estimatedRowHeight = UITableView.automaticDimension
-//        tableView.rowHeight = UITableView.automaticDimension
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -66,28 +75,69 @@ class FeedViewController: UIViewController {
     }
 }
 
+// MARK: - FeedViewContoller + UITableViewDelegate
+
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 300
-        } else {
-            return 75
+        switch contentType[indexPath.section] {
+        case .story:
+            return 100
+        case .firstPost:
+            return 450
+        case .recommendation:
+            return 270
+        case .otherPosts:
+            return 450
         }
     }
 }
 
+// MARK: - FeedViewController + UITableViewDataSource
+
 extension FeedViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        contentType.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        switch contentType[section] {
+        case .story, .recommendation, .firstPost:
+            return 1
+        case .otherPosts:
+            return 5
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: RecommendCell.identifier,
-            for: indexPath
-        ) as? RecommendCell
-        else { fatalError() }
-
-        return cell
+        switch contentType[indexPath.section] {
+        case .story:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: StoryCell.identifier,
+                for: indexPath
+            ) as? StoryCell
+            else { return UITableViewCell() }
+            return cell
+        case .firstPost:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: PostCell.identifier,
+                for: indexPath
+            ) as? PostCell
+            else { return UITableViewCell() }
+            return cell
+        case .recommendation:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: RecommendCell.identifier,
+                for: indexPath
+            ) as? RecommendCell
+            else { return UITableViewCell() }
+            return cell
+        case .otherPosts:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: PostCell.identifier,
+                for: indexPath
+            ) as? PostCell
+            else { return UITableViewCell() }
+            return cell
+        }
     }
 }
