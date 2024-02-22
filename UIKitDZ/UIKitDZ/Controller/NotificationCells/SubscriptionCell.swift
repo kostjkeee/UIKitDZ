@@ -118,8 +118,8 @@ class SubscriptionCell: UITableViewCell {
         subscriptionButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor),
             avatarImageView.widthAnchor.constraint(equalToConstant: 40),
             avatarImageView.heightAnchor.constraint(equalToConstant: 40),
             commentTextLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7),
@@ -128,6 +128,7 @@ class SubscriptionCell: UITableViewCell {
             commentTextLabel.heightAnchor.constraint(equalToConstant: 55),
             commentTextLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             subscriptionButton.leadingAnchor.constraint(equalTo: commentTextLabel.trailingAnchor, constant: 8),
+            subscriptionButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
             subscriptionButton.centerYAnchor.constraint(equalTo: commentTextLabel.centerYAnchor),
             subscriptionButton.widthAnchor.constraint(equalToConstant: 140),
             subscriptionButton.heightAnchor.constraint(equalToConstant: 30)

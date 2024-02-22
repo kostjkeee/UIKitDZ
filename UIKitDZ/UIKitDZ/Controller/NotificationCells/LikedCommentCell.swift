@@ -88,7 +88,7 @@ class LikedCommentCell: UITableViewCell {
     ) {
         avatarImageView.image = UIImage(named: avatarImageName)
         likedPictureImageView.image = UIImage(named: likedImageName)
-
+        isRespondNeeded = shouldAddRespond
         let mainText = NSMutableAttributedString(
             string: userName,
             attributes: [NSAttributedString.Key.font: UIFont(
@@ -121,9 +121,7 @@ class LikedCommentCell: UITableViewCell {
         mainText.append(activityText)
         mainText.append(comment)
         mainText.append(time)
-
         commentTextLabel.attributedText = mainText
-        isRespondNeeded = shouldAddRespond
     }
 
     // MARK: - Private Methods
@@ -142,32 +140,33 @@ class LikedCommentCell: UITableViewCell {
         likeImageView.translatesAutoresizingMaskIntoConstraints = false
         likedPictureImageView.translatesAutoresizingMaskIntoConstraints = false
         respondLabel.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             avatarImageView.topAnchor.constraint(equalTo: topAnchor),
             avatarImageView.widthAnchor.constraint(equalToConstant: 40),
             avatarImageView.heightAnchor.constraint(equalToConstant: 40),
             commentTextLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7),
-            commentTextLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
-//            commentTextLabel.trailingAnchor.constraint(equalTo: likedPictureImageView.leadingAnchor, constant: -24),
-//            commentTextLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
+            commentTextLabel.trailingAnchor.constraint(equalTo: likedPictureImageView.leadingAnchor, constant: -24),
+            commentTextLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
+            commentTextLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 16),
             commentTextLabel.widthAnchor.constraint(equalToConstant: 240),
             commentTextLabel.heightAnchor.constraint(equalToConstant: 40),
             likedPictureImageView.leadingAnchor.constraint(equalTo: commentTextLabel.trailingAnchor, constant: 24),
             likedPictureImageView.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            likedPictureImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
             likedPictureImageView.widthAnchor.constraint(equalToConstant: 40),
             likedPictureImageView.heightAnchor.constraint(equalToConstant: 40),
-            likeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 59),
-            likeImageView.topAnchor.constraint(equalTo: commentTextLabel.bottomAnchor, constant: 2.69),
+            likeImageView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            likeImageView.leadingAnchor.constraint(equalTo: commentTextLabel.leadingAnchor),
+            likeImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -300),
+            likeImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             likeImageView.widthAnchor.constraint(equalToConstant: 16),
             likeImageView.heightAnchor.constraint(equalToConstant: 16),
-            likeImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            respondLabel.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 10),
-            respondLabel.topAnchor.constraint(equalTo: commentTextLabel.bottomAnchor),
-            respondLabel.widthAnchor.constraint(equalToConstant: 240),
             respondLabel.centerYAnchor.constraint(equalTo: likeImageView.centerYAnchor),
-            respondLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            respondLabel.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 10),
+            respondLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+            respondLabel.heightAnchor.constraint(equalToConstant: 16),
+            respondLabel.widthAnchor.constraint(equalToConstant: 240),
         ])
     }
 }

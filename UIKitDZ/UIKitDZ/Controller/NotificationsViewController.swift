@@ -83,8 +83,7 @@ extension NotificationsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        UITableView.automaticDimension
-        47
+        UITableView.automaticDimension
     }
 }
 
