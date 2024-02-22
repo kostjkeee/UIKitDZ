@@ -21,7 +21,6 @@ final class FeedViewController: UIViewController {
         tableView.register(StoryCell.self, forCellReuseIdentifier: StoryCell.identifier)
         tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.identifier)
         tableView.register(RecommendCell.self, forCellReuseIdentifier: RecommendCell.identifier)
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false

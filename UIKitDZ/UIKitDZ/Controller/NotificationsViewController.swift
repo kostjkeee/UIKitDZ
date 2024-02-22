@@ -77,14 +77,6 @@ extension NotificationsViewController: UITableViewDelegate {
         label.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -18).isActive = true
         return containerView
     }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        UITableView.automaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
-    }
 }
 
 // MARK: - NotificationsViewController + UITableViewDataSource
