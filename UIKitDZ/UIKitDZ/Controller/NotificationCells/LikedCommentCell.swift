@@ -146,7 +146,6 @@ class LikedCommentCell: UITableViewCell {
             avatarImageView.widthAnchor.constraint(equalToConstant: 40),
             avatarImageView.heightAnchor.constraint(equalToConstant: 40),
             commentTextLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7),
-            commentTextLabel.trailingAnchor.constraint(equalTo: likedPictureImageView.leadingAnchor, constant: -24),
             commentTextLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
             commentTextLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 16),
             commentTextLabel.widthAnchor.constraint(equalToConstant: 240),

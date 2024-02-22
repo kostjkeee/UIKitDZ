@@ -123,7 +123,7 @@ class RecommendCell: UITableViewCell {
     // MARK: - Private Methods
 
     private func setupUI() {
-        contentView.backgroundColor = UIColor(red: 210 / 255, green: 223 / 255, blue: 238 / 255, alpha: 1.0)
+        backgroundColor = UIColor(red: 210 / 255, green: 223 / 255, blue: 238 / 255, alpha: 1.0)
         contentView.addSubview(scrollView)
         firstView.addSubview(firstImageView)
         firstView.addSubview(firstNameLabel)
@@ -152,6 +152,7 @@ class RecommendCell: UITableViewCell {
 
     func setupConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         firstView.translatesAutoresizingMaskIntoConstraints = false
         firstImageView.translatesAutoresizingMaskIntoConstraints = false
         firstNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -166,10 +167,15 @@ class RecommendCell: UITableViewCell {
         secondXImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17),
-            scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 45),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 25),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 17),
+            scrollView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 45),
+            scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25),
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             firstView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             firstView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             firstView.widthAnchor.constraint(equalToConstant: 185),
