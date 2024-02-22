@@ -18,9 +18,9 @@ final class FeedViewController: UIViewController {
 
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(StoryCell.self, forCellReuseIdentifier: StoryCell.identifier)
-        tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.identifier)
-        tableView.register(RecommendCell.self, forCellReuseIdentifier: RecommendCell.identifier)
+        tableView.register(StoryTableCell.self, forCellReuseIdentifier: StoryTableCell.identifier)
+        tableView.register(PostTableCell.self, forCellReuseIdentifier: PostTableCell.identifier)
+        tableView.register(RecommendTableCell.self, forCellReuseIdentifier: RecommendTableCell.identifier)
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,6 @@ final class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupNavigationBarButtons()
         setupUI()
     }
@@ -43,6 +42,7 @@ final class FeedViewController: UIViewController {
     // MARK: - Private Methods
 
     private func setupUI() {
+        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -111,30 +111,30 @@ extension FeedViewController: UITableViewDataSource {
         switch contentType[indexPath.section] {
         case .story:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: StoryCell.identifier,
+                withIdentifier: StoryTableCell.identifier,
                 for: indexPath
-            ) as? StoryCell
+            ) as? StoryTableCell
             else { return UITableViewCell() }
             return cell
         case .firstPost:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: PostCell.identifier,
+                withIdentifier: PostTableCell.identifier,
                 for: indexPath
-            ) as? PostCell
+            ) as? PostTableCell
             else { return UITableViewCell() }
             return cell
         case .recommendation:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: RecommendCell.identifier,
+                withIdentifier: RecommendTableCell.identifier,
                 for: indexPath
-            ) as? RecommendCell
+            ) as? RecommendTableCell
             else { return UITableViewCell() }
             return cell
         case .otherPosts:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: PostCell.identifier,
+                withIdentifier: PostTableCell.identifier,
                 for: indexPath
-            ) as? PostCell
+            ) as? PostTableCell
             else { return UITableViewCell() }
             return cell
         }

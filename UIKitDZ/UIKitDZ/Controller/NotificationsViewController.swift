@@ -16,8 +16,8 @@ final class NotificationsViewController: UIViewController {
 
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(SubscriptionCell.self, forCellReuseIdentifier: SubscriptionCell.identifier)
-        tableView.register(LikedCommentCell.self, forCellReuseIdentifier: LikedCommentCell.identifier)
+        tableView.register(SubscriptionTableCell.self, forCellReuseIdentifier: SubscriptionTableCell.identifier)
+        tableView.register(LikedCommentTableCell.self, forCellReuseIdentifier: LikedCommentTableCell.identifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "someCell")
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
@@ -106,9 +106,9 @@ extension NotificationsViewController: UITableViewDataSource {
         case .today:
             let cellData = notification.likeNotifications[indexPath.row]
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: LikedCommentCell.identifier,
+                withIdentifier: LikedCommentTableCell.identifier,
                 for: indexPath
-            ) as? LikedCommentCell
+            ) as? LikedCommentTableCell
             else { return UITableViewCell() }
             cell.configureCell(
                 avatarImageName: cellData.avatarImageName,
@@ -125,9 +125,9 @@ extension NotificationsViewController: UITableViewDataSource {
 
             if let likeNotification = cellData as? LikeNotification {
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: LikedCommentCell.identifier,
+                    withIdentifier: LikedCommentTableCell.identifier,
                     for: indexPath
-                ) as? LikedCommentCell
+                ) as? LikedCommentTableCell
                 else { return UITableViewCell() }
                 cell.configureCell(
                     avatarImageName: likeNotification.avatarImageName,
@@ -142,9 +142,9 @@ extension NotificationsViewController: UITableViewDataSource {
 
             } else if let subscriptionNotification = cellData as? RecommendNotification {
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: SubscriptionCell.identifier,
+                    withIdentifier: SubscriptionTableCell.identifier,
                     for: indexPath
-                ) as? SubscriptionCell
+                ) as? SubscriptionTableCell
                 else { return UITableViewCell() }
 
                 cell.configureCell(

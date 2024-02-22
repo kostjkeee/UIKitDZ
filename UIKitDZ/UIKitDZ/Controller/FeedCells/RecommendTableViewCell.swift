@@ -4,7 +4,7 @@
 import UIKit
 
 /// Кастомная ячейка для рекомендованных друзей
-class RecommendCell: UITableViewCell {
+class RecommendTableCell: UITableViewCell {
     // MARK: - Constants
 
     enum Constants {
