@@ -14,6 +14,7 @@ class SpaceImagesCollectionCell: UICollectionViewCell {
     var spaceImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

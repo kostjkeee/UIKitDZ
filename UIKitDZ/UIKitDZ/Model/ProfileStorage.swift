@@ -46,7 +46,7 @@ struct ProfileStorage {
         Stories(imageName: Constants.secondStoryImageName, storyName: Constants.secondStoryName),
         Stories(imageName: Constants.thirdStoryImageName, storyName: Constants.thirdStoryName),
         Stories(imageName: Constants.fourthStoryImageName, storyName: Constants.fourthStoryName),
-        Stories(imageName: Constants.firstStoryImageName, storyName: Constants.firstStoryName),
+        Stories(imageName: Constants.firstStoryImageName, storyName: Constants.firstStoryName, isTapNeeded: true),
         Stories(imageName: Constants.fourthStoryImageName, storyName: Constants.fourthStoryName),
         Stories(imageName: Constants.secondStoryImageName, storyName: Constants.secondStoryName),
         Stories(imageName: Constants.thirdStoryImageName, storyName: Constants.thirdStoryName)
@@ -62,6 +62,13 @@ struct ProfileStorage {
         Constants.spaceImageName1,
         Constants.spaceImageName1,
         Constants.spaceImageName2,
-        Constants.spaceImageName3
+        Constants.spaceImageName4,
+        Constants.spaceImageName3,
+        Constants.spaceImageName1,
+        Constants.spaceImageName1,
+        Constants.spaceImageName3,
+        Constants.spaceImageName4,
+        Constants.spaceImageName2,
+        Constants.spaceImageName1
     ]
 }

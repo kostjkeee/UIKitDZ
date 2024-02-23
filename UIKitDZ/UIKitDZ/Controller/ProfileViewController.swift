@@ -57,52 +57,32 @@ final class ProfileViewController: UIViewController {
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 
     private func setupNavigationBarButtons() {
-        let leftBarUsernameButton = UIBarButtonItem(
-            title: Constants.navigationLeftUserName,
-            style: .plain,
-            target: nil,
-            action: nil
-        )
-        let leftBarLockButton = UIBarButtonItem(
-            image: UIImage(systemName: Constants.navigationLeftlockImageName),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
-        let rightBarPlusButton = UIBarButtonItem(
-            image: UIImage(systemName: Constants.navigationRightPlusImageName),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
-        let rightBarSettingsButton = UIBarButtonItem(
-            image: UIImage(systemName: Constants.navigationRightSettingsImageName),
-            style: .plain,
-            target: nil,
-            action: nil
-        )
+        let leftBarUsernameButton = makeBarButtonItem(text: Constants.navigationLeftUserName)
+        let leftBarLockButton = makeBarButtonItem(image: UIImage(systemName: Constants.navigationLeftlockImageName))
+        let rightBarPlusButton = makeBarButtonItem(image: UIImage(systemName: Constants.navigationRightPlusImageName))
+        let rightBarSettingsButton =
+            makeBarButtonItem(image: UIImage(systemName: Constants.navigationRightSettingsImageName))
+        navigationItem.setLeftBarButtonItems([leftBarLockButton, leftBarUsernameButton], animated: false)
+        navigationItem.setRightBarButtonItems([rightBarSettingsButton, rightBarPlusButton], animated: false)
+    }
 
-        let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        spacer.width = -100
-
-        leftBarLockButton.tintColor = .black
-        leftBarUsernameButton.tintColor = .black
-        rightBarPlusButton.tintColor = .black
-        rightBarSettingsButton.tintColor = .black
-        leftBarUsernameButton.setTitleTextAttributes(
-            [
-                NSAttributedString.Key
-                    .font: UIFont(name: MainTabBarController.Constants.verdanaBold, size: 18) ?? UIFont
-                    .systemFont(ofSize: 18)
-            ],
-            for: .normal
-        )
-        navigationItem.leftBarButtonItems = [leftBarLockButton, leftBarUsernameButton, spacer]
-        navigationItem.rightBarButtonItems = [rightBarSettingsButton, rightBarPlusButton]
+    private func makeBarButtonItem(image: UIImage? = nil, text: String? = nil) -> UIBarButtonItem {
+        let button = UIButton(type: .system)
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        button.setTitle(text, for: .normal)
+        button.titleLabel?.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 18)
+        button.setTitleColor(.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        if text == nil {
+            button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            button.contentMode = .scaleAspectFill
+        }
+        return UIBarButtonItem(customView: button)
     }
 }
 
@@ -141,6 +121,13 @@ extension ProfileViewController: UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: StoriesTableCell.identifier, for: indexPath) as? StoriesTableCell
             else { return UITableViewCell() }
             cell.configure(stories: profileStorage.stories)
+            cell.passingInfoToControllerHandler = { [weak self] fullImageName, miniImageName, text in
+                let destination = StoryPresentationViewController()
+                destination.fullImageNameToShow = fullImageName
+                destination.miniImageNameToShow = miniImageName
+                destination.storyTextToShow = text
+                self?.present(destination, animated: true)
+            }
             return cell
         case .spaceImages:
             guard let cell = tableView
@@ -149,7 +136,7 @@ extension ProfileViewController: UITableViewDataSource {
                     for: indexPath
                 ) as? SpaceImagesTableCell
             else { return UITableViewCell() }
-            cell.loadSpaceImagesNames(imagesNames: profileStorage.spaceImagesNames)
+            cell.configure(imagesNames: profileStorage.spaceImagesNames)
             return cell
         }
     }

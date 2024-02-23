@@ -9,4 +9,6 @@ struct Stories {
     var imageName: String
     /// Имя истории
     var storyName: String
+    /// Открывается ли история
+    var isTapNeeded = false
 }

@@ -169,8 +169,6 @@ class UserInfoTableCell: UITableViewCell {
 
     var presentWkWebViewHandler: StringHandler?
 
-    // MARK: - Private Properties
-
     // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

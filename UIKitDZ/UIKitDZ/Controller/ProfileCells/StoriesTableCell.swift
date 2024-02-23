@@ -5,10 +5,15 @@ import UIKit
 
 /// Истории пользователя
 class StoriesTableCell: UITableViewCell {
+    // MARK: - Types
+
+    typealias StringHandler = (String, String, String) -> ()
+
     // MARK: - Constants
 
     enum Constants {
         static let storiesWidth: CGFloat = 55
+        static let storyImageNameToPass = "openedStoryImage"
     }
 
     static let identifier = "StoriesCell"
@@ -21,7 +26,10 @@ class StoriesTableCell: UITableViewCell {
         return scrollView
     }()
 
-    // MARK: - Private Properties
+    // MARK: - Public Properties
+
+    var storyInfoToPassToController: (String, String, String)?
+    var passingInfoToControllerHandler: StringHandler?
 
     // MARK: - Initializers
 
@@ -53,6 +61,14 @@ class StoriesTableCell: UITableViewCell {
         scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
+    @objc private func storyTapped() {
+        passingInfoToControllerHandler?(
+            storyInfoToPassToController?.0 ?? "",
+            storyInfoToPassToController?.1 ?? "",
+            storyInfoToPassToController?.2 ?? ""
+        )
+    }
+
     private func makeStory(stories: [Stories]) {
         var offset = scrollView.leadingAnchor
 
@@ -74,6 +90,13 @@ class StoriesTableCell: UITableViewCell {
 
             scrollView.addSubview(storyNameLabel)
             scrollView.addSubview(storyImageView)
+
+            if story.isTapNeeded {
+                let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(storyTapped))
+                storyImageView.isUserInteractionEnabled = true
+                storyImageView.addGestureRecognizer(tapRecognizer)
+                storyInfoToPassToController = (Constants.storyImageNameToPass, story.imageName, story.storyName)
+            }
 
             storyImageView.leadingAnchor.constraint(equalTo: offset, constant: 15).isActive = true
             storyImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 17).isActive = true

@@ -22,6 +22,7 @@
 		8B4DB62C2B85A26700886174 /* NotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DB62B2B85A26700886174 /* NotificationStorage.swift */; };
 		8B5332C82B876FA00062BB66 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5332C72B876FA00062BB66 /* Stories.swift */; };
 		8B5332CB2B879F840062BB66 /* SpaceImagesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5332CA2B879F840062BB66 /* SpaceImagesCollectionCell.swift */; };
+		8B5332CD2B883CD30062BB66 /* StoryPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5332CC2B883CD30062BB66 /* StoryPresentationViewController.swift */; };
 		8B9D44742B863B380027581A /* RecommendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D44732B863B380027581A /* RecommendNotification.swift */; };
 		8B9D44762B863B620027581A /* LikeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D44752B863B620027581A /* LikeNotification.swift */; };
 		8BD2283E2B8724B500A9905F /* UserInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2283D2B8724B500A9905F /* UserInfoTableCell.swift */; };
@@ -53,6 +54,7 @@
 		8B4DB62B2B85A26700886174 /* NotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStorage.swift; sourceTree = "<group>"; };
 		8B5332C72B876FA00062BB66 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
 		8B5332CA2B879F840062BB66 /* SpaceImagesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceImagesCollectionCell.swift; sourceTree = "<group>"; };
+		8B5332CC2B883CD30062BB66 /* StoryPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresentationViewController.swift; sourceTree = "<group>"; };
 		8B9D44732B863B380027581A /* RecommendNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendNotification.swift; sourceTree = "<group>"; };
 		8B9D44752B863B620027581A /* LikeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeNotification.swift; sourceTree = "<group>"; };
 		8BD2283D2B8724B500A9905F /* UserInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableCell.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				8B3AFD022B83A24900F5F8DD /* NotificationsViewController.swift */,
 				8B3AFD042B83A25200F5F8DD /* ProfileViewController.swift */,
 				8BD2284B2B875F2200A9905F /* WkWebViewController.swift */,
+				8B5332CC2B883CD30062BB66 /* StoryPresentationViewController.swift */,
 				8BD2283C2B87248300A9905F /* ProfileCells */,
 				8B4DB6262B85879800886174 /* NotificationCells */,
 				8B3AFD082B83A8E300F5F8DD /* FeedCells */,
@@ -319,6 +322,7 @@
 				8BD228442B87286C00A9905F /* SpaceImagesTableCell.swift in Sources */,
 				8B4DB62C2B85A26700886174 /* NotificationStorage.swift in Sources */,
 				8BD2283E2B8724B500A9905F /* UserInfoTableCell.swift in Sources */,
+				8B5332CD2B883CD30062BB66 /* StoryPresentationViewController.swift in Sources */,
 				8B3AFD052B83A25200F5F8DD /* ProfileViewController.swift in Sources */,
 				8B3AFCFF2B83A18A00F5F8DD /* MainTabBarController.swift in Sources */,
 				8BEE895E2B73C1A500E037E4 /* SceneDelegate.swift in Sources */,

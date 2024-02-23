@@ -7,6 +7,12 @@ import UIKit
 class SpaceImagesTableCell: UITableViewCell {
     // MARK: - Constants
 
+    enum Constants {
+        static let itemsPerRow = 3
+        static let itemWidth: CGFloat = 124
+        static let spacing: CGFloat = 1.5
+    }
+
     static let identifier = "SpaceImagesCell"
 
     // MARK: - Visual Components
@@ -16,9 +22,6 @@ class SpaceImagesTableCell: UITableViewCell {
     // MARK: - Private Properties
 
     private var spaceImagesNames: [String] = []
-    private let itemsPerRow: CGFloat = 3
-    private let sectionInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-
 
     // MARK: - Initializers
 
@@ -34,8 +37,14 @@ class SpaceImagesTableCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    public func loadSpaceImagesNames(imagesNames: [String]) {
+    public func configure(imagesNames: [String]) {
         spaceImagesNames = imagesNames
+        var numberOfRows = imagesNames.count / Constants.itemsPerRow
+        if imagesNames.count % Constants.itemsPerRow != 0 {
+            numberOfRows += 1
+        }
+        let collectiovViewHeight = (Constants.itemWidth + Constants.spacing) * CGFloat(numberOfRows)
+        collectionView.heightAnchor.constraint(equalToConstant: collectiovViewHeight.rounded()).isActive = true
     }
 
     // MARK: - Private Methods
@@ -54,14 +63,13 @@ class SpaceImagesTableCell: UITableViewCell {
         collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-//        collectionView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
 
     private func setupFlowLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: 124, height: 124)
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-    
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumLineSpacing = Constants.spacing
+        layout.minimumInteritemSpacing = Constants.spacing
         return layout
     }
 }
@@ -88,5 +96,4 @@ extension SpaceImagesTableCell: UICollectionViewDataSource {
 
 // MARK: - SpaceImagesCell + UICollectionViewDelegate
 
-extension SpaceImagesTableCell: UICollectionViewDelegate {
-}
+extension SpaceImagesTableCell: UICollectionViewDelegate {}
