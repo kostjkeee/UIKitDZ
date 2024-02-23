@@ -47,7 +47,7 @@ class StoryPresentationViewController: UIViewController {
     }()
 
     private var xMarkButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .myDarkestGray
@@ -83,6 +83,7 @@ class StoryPresentationViewController: UIViewController {
         storyFullImageView.addSubview(storyMiniTextLabel)
         storyFullImageView.addSubview(progressView)
         storyFullImageView.addSubview(xMarkButton)
+        storyFullImageView.isUserInteractionEnabled = true
 
         guard let fullImageName = fullImageNameToShow,
               let miniImageName = miniImageNameToShow,
@@ -125,7 +126,7 @@ class StoryPresentationViewController: UIViewController {
     }
 
     private func setupXmarkButton() {
-        xMarkButton.addTarget(self, action: #selector(xMarkTapped), for: .touchUpInside)
+        xMarkButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
         xMarkButton.trailingAnchor.constraint(equalTo: storyFullImageView.trailingAnchor, constant: -10).isActive = true
         xMarkButton.centerYAnchor.constraint(equalTo: storyMiniImageView.centerYAnchor).isActive = true
         xMarkButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
@@ -149,8 +150,7 @@ class StoryPresentationViewController: UIViewController {
         }
     }
 
-    @objc private func xMarkTapped(sender: UIButton) {
-        print("x tapped")
+    @objc private func cancelTapped() {
         dismiss(animated: true)
     }
 }

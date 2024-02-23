@@ -51,6 +51,7 @@ class SpaceImagesTableCell: UITableViewCell {
 
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: setupFlowLayout())
+        collectionView.isScrollEnabled = true
         collectionView.register(
             SpaceImagesCollectionCell.self,
             forCellWithReuseIdentifier: SpaceImagesCollectionCell.identifier

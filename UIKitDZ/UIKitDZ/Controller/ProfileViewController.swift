@@ -22,6 +22,7 @@ final class ProfileViewController: UIViewController {
         tableView.register(StoriesTableCell.self, forCellReuseIdentifier: StoriesTableCell.identifier)
         tableView.register(SpaceImagesTableCell.self, forCellReuseIdentifier: SpaceImagesTableCell.identifier)
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
@@ -35,12 +36,18 @@ final class ProfileViewController: UIViewController {
 
     private let profileStorage = ProfileStorage()
 
+    private lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(useRefresh), for: .valueChanged)
+        return refresh
+    }()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupConstraints()
+        setupTableViewConstraints()
     }
 
     // MARK: - Private Methods
@@ -48,12 +55,12 @@ final class ProfileViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(tableView)
+        tableView.refreshControl = refreshControl
         setupNavigationBarButtons()
-        tableView.delegate = self
         tableView.dataSource = self
     }
 
-    private func setupConstraints() {
+    private func setupTableViewConstraints() {
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -84,11 +91,11 @@ final class ProfileViewController: UIViewController {
         }
         return UIBarButtonItem(customView: button)
     }
+
+    @objc private func useRefresh() {
+        refreshControl.endRefreshing()
+    }
 }
-
-// MARK: - ProfileViewController + UITableViewDelegate
-
-extension ProfileViewController: UITableViewDelegate {}
 
 // MARK: - ProfileViewController + UITableViewDelegate
 
