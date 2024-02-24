@@ -5,7 +5,7 @@ import UIKit
 import WebKit
 
 /// Экран для отображения WkWebView
-class WkWebViewController: UIViewController {
+final class WkWebViewController: UIViewController {
     // MARK: - Public Properties
 
     var urlString: String?

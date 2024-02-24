@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка для коллекции изображений с космосом
-class SpaceImagesCollectionCell: UICollectionViewCell {
+final class SpaceImagesCollectionCell: UICollectionViewCell {
     // MARK: - Constants
 
     static let identifier = "SpaceImagesCollectionCell"
@@ -28,10 +28,9 @@ class SpaceImagesCollectionCell: UICollectionViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupSpaceImageView()
     }
-
-    // MARK: - Public Methods
 
     // MARK: - Private Methods
 

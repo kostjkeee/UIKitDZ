@@ -11,9 +11,8 @@ class SpaceImagesTableCell: UITableViewCell {
         static let itemsPerRow = 3
         static let itemWidth: CGFloat = 124
         static let spacing: CGFloat = 1.5
+        static let identifier = "SpaceImagesCell"
     }
-
-    static let identifier = "SpaceImagesCell"
 
     // MARK: - Visual Components
 
@@ -32,7 +31,8 @@ class SpaceImagesTableCell: UITableViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupCollectionView()
     }
 
     // MARK: - Public Methods

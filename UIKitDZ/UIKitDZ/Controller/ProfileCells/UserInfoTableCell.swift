@@ -20,7 +20,7 @@ class UserInfoTableCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private var avatarImageView: UIImageView = {
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 40
         imageView.contentMode = .scaleAspectFill
@@ -29,7 +29,7 @@ class UserInfoTableCell: UITableViewCell {
         return imageView
     }()
 
-    private var addStoryImageView: UIImageView = {
+    private let addStoryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 13
         imageView.backgroundColor = .myPink
@@ -37,7 +37,7 @@ class UserInfoTableCell: UITableViewCell {
         return imageView
     }()
 
-    private var plusImageView: UIImageView = {
+    private let plusImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .white
@@ -46,7 +46,7 @@ class UserInfoTableCell: UITableViewCell {
         return imageView
     }()
 
-    private var postsLabel: UILabel = {
+    private let postsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 10)
@@ -55,7 +55,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var subscribersLabel: UILabel = {
+    private let subscribersLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 10)
@@ -64,7 +64,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var subscriptionsLabel: UILabel = {
+    private let subscriptionsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 10)
@@ -73,7 +73,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var postsCount: UILabel = {
+    private let postsCount: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 14)
@@ -83,7 +83,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var subscribersCount: UILabel = {
+    private let subscribersCount: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 14)
@@ -93,7 +93,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var subscriptionsCount: UILabel = {
+    private let subscriptionsCount: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 14)
@@ -103,7 +103,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var userNameLabel: UILabel = {
+    private let userNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdanaBold, size: 14)
@@ -113,7 +113,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var userOccupationLabel: UILabel = {
+    private let userOccupationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: MainTabBarController.Constants.verdana, size: 14)
@@ -123,7 +123,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var urlLabel: UILabel = {
+    private let urlLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = true
@@ -133,7 +133,7 @@ class UserInfoTableCell: UITableViewCell {
         return label
     }()
 
-    private var changeButton: UIButton = {
+    private let changeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
@@ -144,7 +144,7 @@ class UserInfoTableCell: UITableViewCell {
         return button
     }()
 
-    private var shareProfileButton: UIButton = {
+    private let shareProfileButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
@@ -155,7 +155,7 @@ class UserInfoTableCell: UITableViewCell {
         return button
     }()
 
-    private var addFriendButton: UIButton = {
+    private let addFriendButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
@@ -225,10 +225,6 @@ class UserInfoTableCell: UITableViewCell {
     private func setupGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(urlTapped))
         urlLabel.addGestureRecognizer(tapGesture)
-    }
-
-    @objc private func urlTapped() {
-        presentWkWebViewHandler?(Constants.spaceXurl)
     }
 
     private func setupAvatarImageViewConstraints() {
@@ -313,5 +309,9 @@ class UserInfoTableCell: UITableViewCell {
         addFriendButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
         addFriendButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
         addFriendButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+
+    @objc private func urlTapped() {
+        presentWkWebViewHandler?(Constants.spaceXurl)
     }
 }

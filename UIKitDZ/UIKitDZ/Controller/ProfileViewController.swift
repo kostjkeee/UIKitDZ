@@ -20,7 +20,7 @@ final class ProfileViewController: UIViewController {
         let tableView = UITableView()
         tableView.register(UserInfoTableCell.self, forCellReuseIdentifier: UserInfoTableCell.identifier)
         tableView.register(StoriesTableCell.self, forCellReuseIdentifier: StoriesTableCell.identifier)
-        tableView.register(SpaceImagesTableCell.self, forCellReuseIdentifier: SpaceImagesTableCell.identifier)
+        tableView.register(SpaceImagesTableCell.self, forCellReuseIdentifier: SpaceImagesTableCell.Constants.identifier)
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
@@ -30,17 +30,17 @@ final class ProfileViewController: UIViewController {
         return tableView
     }()
 
-    // MARK: - Private Properties
-
-    private let sectionsType: [ProfileCellTypes] = [.userInfo, .stories, .spaceImages]
-
-    private let profileStorage = ProfileStorage()
-
     private lazy var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(useRefresh), for: .valueChanged)
         return refresh
     }()
+
+    // MARK: - Private Properties
+
+    private let sectionsType: [ProfileCellTypes] = [.userInfo, .stories, .spaceImages]
+
+    private let profileStorage = ProfileStorage()
 
     // MARK: - Life Cycle
 
@@ -139,7 +139,7 @@ extension ProfileViewController: UITableViewDataSource {
         case .spaceImages:
             guard let cell = tableView
                 .dequeueReusableCell(
-                    withIdentifier: SpaceImagesTableCell.identifier,
+                    withIdentifier: SpaceImagesTableCell.Constants.identifier,
                     for: indexPath
                 ) as? SpaceImagesTableCell
             else { return UITableViewCell() }

@@ -4,7 +4,7 @@
 import UIKit
 
 /// Показывает нажатую  историю на весь экран
-class StoryPresentationViewController: UIViewController {
+final class StoryPresentationViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
