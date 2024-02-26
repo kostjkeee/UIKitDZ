@@ -1,10 +1,10 @@
-// ViewController.swift
+// AutoLayoutStoryboardViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// main view controller
-class ViewController: UIViewController {
+class AutoLayoutStoryboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("hi")
